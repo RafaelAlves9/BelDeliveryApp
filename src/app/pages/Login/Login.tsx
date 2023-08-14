@@ -22,7 +22,10 @@ const Login = () => {
             <React.Fragment>
                 <styles.Tittle>Cadastre-se ou faça o login para continuar</styles.Tittle>
                 <styles.ButtonsActionsContainer>
-                    <styles.ButtonAction number={1} onClick={(() => Actions.googleSingIn())}>
+                    <styles.ButtonAction
+                        number={1}
+                        onClick={(() => Actions.googleSingIn())}
+                    >
                         <img src={LogoGoogle} alt="" />
                         Continuar com Google
                     </styles.ButtonAction>
@@ -36,7 +39,9 @@ const Login = () => {
                         </styles.EmailIcon>
                         Continuar com Email
                     </styles.ButtonAction>
-                    <styles.ButtonAction number={3}>
+                    <styles.ButtonAction
+                        number={3}
+                    >
                         Não tenho conta
                     </styles.ButtonAction>
                 </styles.ButtonsActionsContainer>
