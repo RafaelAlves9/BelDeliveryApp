@@ -1,4 +1,4 @@
-import { TRole } from "../../models/types/Trole";
+import { TRole } from "../../models/types/TRole";
 
 export interface IAuthenticationInterface {
     loginWithGoogle(role: TRole): Promise<boolean>;

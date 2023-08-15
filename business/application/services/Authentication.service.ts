@@ -3,7 +3,7 @@ import { IAuthenticationInterface } from "../Interfaces/IAuthentication.interfac
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { db } from "@config/firebase/firebaseConfig";
 import { where, query, collection, getDocs } from 'firebase/firestore';
-import { TRole } from "../../models/types/Trole";
+import { TRole } from "../../models/types/TRole";
 
 export class AuthenticationService implements IAuthenticationInterface {
 
