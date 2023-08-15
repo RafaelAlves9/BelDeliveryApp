@@ -3,10 +3,11 @@ import { IAuthenticationInterface } from "../Interfaces/IAuthentication.interfac
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { db } from "@config/firebase/firebaseConfig";
 import { where, query, collection, getDocs } from 'firebase/firestore';
+import { TRole } from "../../models/types/Trole";
 
 export class AuthenticationService implements IAuthenticationInterface {
 
-    async loginWithGoogle(role: "restaurant" | "client"): Promise<boolean> {
+    async loginWithGoogle(role: TRole): Promise<boolean> {
         try {
             const login = await signInWithPopup(auth, googleAuth);
             const isRegistred = await this.checkUserExist(login.user.uid, role);
@@ -23,7 +24,7 @@ export class AuthenticationService implements IAuthenticationInterface {
         };
     };
 
-    async loginWithEmailAndPassword(email: string, password: string, role: "resaurant" | "client"): Promise<boolean> {
+    async loginWithEmailAndPassword(email: string, password: string, role: TRole): Promise<boolean> {
         try{
             const login = await signInWithEmailAndPassword(auth, email, password);
             if(login.user){
@@ -36,7 +37,7 @@ export class AuthenticationService implements IAuthenticationInterface {
         };
     };
     
-    async setLocalUserData(id: string, role: string): Promise<any> {
+    async setLocalUserData(id: string, role: TRole): Promise<any> {
         const userData = {id, role};
         
         localStorage.setItem("logged", JSON.stringify(userData));

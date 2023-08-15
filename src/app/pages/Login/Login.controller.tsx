@@ -1,10 +1,6 @@
-import { googleAuth, auth } from "@config/firebase/firebaseConfig";
-import { signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { ClientService } from "@service/Client.service";
 import { AuthenticationService } from "@service/Authentication.service";
-import { ERoles } from "@enums/ERoles";
 import { useNavigate } from "react-router-dom";
 import { toastMessage } from "@utils/toastMessage";
 
@@ -30,10 +26,12 @@ const UseLoginController = () => {
     });
 
     const googleSingIn = async () => {
-        const login = await authenticationService.loginWithGoogle(ERoles.Client);
+        const login = await authenticationService.loginWithGoogle("client");
         if(login === true){
             navigate("/client");
             toastMessage("Login feito com sucesso", "success");
+        }else {
+            toastMessage("Não foi possível fazer login com o Google", "error");
         };
     };
     
@@ -41,7 +39,7 @@ const UseLoginController = () => {
         const login: boolean = await authenticationService.loginWithEmailAndPassword(
             watch("email"),
             watch("password"),
-            ERoles.Client
+            "client"
         );
         if(login){
             navigate("/client");
