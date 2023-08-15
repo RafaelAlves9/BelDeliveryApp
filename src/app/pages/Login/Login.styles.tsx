@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import LogoPizza from "@assets/pizza-logo.jpg";
+import LogoPizzaDark from "@assets/pizza-logo-dark.jpg";
 
 export const Container = styled.div`
    width: 100%;
@@ -8,6 +9,12 @@ export const Container = styled.div`
    grid-template-columns: 1fr 1.5fr;
    grid-template-rows: 1fr;
    grid-template-areas: "logo form";
+   
+    @media screen and (max-width: 54rem) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "form";
+    };
 `;
 export const ContainerLogo = styled.div`
     grid-area: logo;
@@ -18,6 +25,10 @@ export const ContainerLogo = styled.div`
     background-image: url(${LogoPizza});
     background-position: left;
     background-size: cover;
+
+    @media screen and (max-width: 54rem) {
+        display: none;
+    };
 `;
 export const ContainerForm = styled.div`
     grid-area: form;
@@ -26,11 +37,23 @@ export const ContainerForm = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    @media screen and (max-width: 54rem) {
+        background-image: url(${LogoPizzaDark});
+        background-size: cover;
+        background-position: bottom;
+        background-color: #000;
+    };
 `;
 export const Tittle = styled.h1`
     font-size: 2rem;
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
+    
+    @media screen and (max-width: 54rem) {
+        font-size: 1.6rem;
+        color: #fff;
+    };
 `;
 export const ButtonsActionsContainer = styled.div`
     padding-top: 3rem;
@@ -80,6 +103,10 @@ export const EmailFormContainer = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    @media screen and (max-width: 54rem) {
+        width: 85%;
+    };
 `;
 export const BackStep = styled.div`
     margin-bottom: 1rem;
@@ -95,6 +122,13 @@ export const BackStep = styled.div`
     p{
         font-size: 1rem;
     }
+    
+    @media screen and (max-width: 54rem) {
+        position: fixed;
+        top: 1rem;
+        left: .5rem;
+        color: #fff;
+    };
 `;
 export const Input = styled.input`
     width: 85%;
@@ -112,8 +146,12 @@ export const Input = styled.input`
     }
     
     &:focus{
-    border-bottom: 1px solid var(--green-main);
+        border-bottom: 1px solid var(--green-main);
     }
+    
+    @media screen and (max-width: 54rem) {
+        width: 100%;
+    };
 `;
 export const ErrorMessenge = styled.span`
     padding-top: 0.3rem;
@@ -122,6 +160,11 @@ export const ErrorMessenge = styled.span`
     color: #ff0000db;
     font-size: .8rem;
     font-weight: 700;
+    
+    @media screen and (max-width: 54rem) {
+        width: 100%;
+        color: #ff0000db;
+    };
 `
 export const ConfirmButton = styled.button`
     margin-top: 2rem;

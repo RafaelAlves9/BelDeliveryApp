@@ -28,7 +28,7 @@ const UseLoginController = () => {
     const googleSingIn = async () => {
         const login = await authenticationService.loginWithGoogle("client");
         if(login === true){
-            navigate("/client");
+            navigate("/");
             toastMessage("Login feito com sucesso", "success");
         }else {
             toastMessage("Não foi possível fazer login com o Google", "error");
@@ -42,7 +42,7 @@ const UseLoginController = () => {
             "client"
         );
         if(login){
-            navigate("/client");
+            navigate("/");
             toastMessage("Login feito com sucesso", "success");
         }else {
             toastMessage("Email ou senha inválidos", "error");

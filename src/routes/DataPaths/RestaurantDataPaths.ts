@@ -19,7 +19,7 @@ export const RestaurantDataPaths: TRoutePath[] = [
     element: RestaurantImports.Orders
   },
   {
-    path: "/restaurante/promotions",
+    path: "/restaurante/promocao",
     element: RestaurantImports.Promotions
   }
 ];

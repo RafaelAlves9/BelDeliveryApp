@@ -7,11 +7,11 @@ type props = {
 };
 
 const AuthRequiredRoutes = ({ roleRoute }: props) => {
-  const token = getLocalStorageProperty("logged", "id");
+  const id = getLocalStorageProperty("logged", "id");
   const role = getLocalStorageProperty("logged", "role");
 
   const isAuthorized = () => {
-    if (role && token && role === roleRoute) {
+    if (role && id && role === roleRoute) {
       return true;
     } else {
       return false;
@@ -20,7 +20,7 @@ const AuthRequiredRoutes = ({ roleRoute }: props) => {
 
   useEffect(() => {
     isAuthorized();
-  }, [token]);
+  }, [id]);
 
   if (isAuthorized()) {
     return <Outlet />;
