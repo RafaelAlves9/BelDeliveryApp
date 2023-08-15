@@ -87,10 +87,13 @@ export const ButtonAction = styled.button<{number: number}>`
     &:hover{
         background-color: #29d88322;
     }
-
     img{
         width: 2.2rem;
     }
+    
+    @media screen and (max-width: 54rem) {
+        background-color: transparent;
+    };
 `;
 export const EmailIcon = styled.div`
     padding-top: 0.7rem;
