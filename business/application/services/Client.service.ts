@@ -4,7 +4,7 @@ import { setDoc, doc } from 'firebase/firestore';
 import { getLocalStorageProperty } from "../../../src/utils/getLocalStorageProperty";
 import { TAddressUserSchema, TRegisterUserSchema } from "../../models/entities/request/UserSchema";
 
-export class UserService implements IUserInterface {
+export class ClientService implements IUserInterface {
     private _idUser = getLocalStorageProperty("user", "id");
 
     async addressUser(address: TAddressUserSchema): Promise<any> {
