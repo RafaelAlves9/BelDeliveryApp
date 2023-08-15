@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { AuthenticationService } from "@service/Authentication.service";
 import { useNavigate } from "react-router-dom";
 import { toastMessage } from "@utils/toastMessage";
+import { useDispatch } from "react-redux";
+import { setLoading } from "@store/reducers/loading/loadingSlice";
 
 export enum ELoginStep {
     Initial=1,
@@ -17,6 +19,7 @@ const UseLoginController = () => {
     const [loginStepScreen, setLoginStepScreen] = useState<ELoginStep>(ELoginStep.Initial);
     const authenticationService = new AuthenticationService();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const { watch, register, handleSubmit, formState: {errors} } = useForm<IFormValue>({
         defaultValues: {
@@ -26,27 +29,39 @@ const UseLoginController = () => {
     });
 
     const googleSingIn = async () => {
-        const login = await authenticationService.loginWithGoogle("client");
-        if(login === true){
-            navigate("/");
-            toastMessage("Login feito com sucesso", "success");
-        }else {
-            toastMessage("Não foi possível fazer login com o Google", "error");
-        };
+        dispatch(setLoading(true));
+        await authenticationService.loginWithGoogle("client")
+        .then((res) => {
+            if(res === true){
+                navigate("/");
+                toastMessage("Login feito com sucesso", "success");
+            }else {
+                toastMessage("Não foi possível fazer login com o Google", "error");
+            };
+        })
+        .finally(() => {
+            dispatch(setLoading(false));
+        });
     };
     
     const onSubmit = async () => {
-        const login: boolean = await authenticationService.loginWithEmailAndPassword(
+        dispatch(setLoading(true));
+        await authenticationService.loginWithEmailAndPassword(
             watch("email"),
             watch("password"),
             "client"
-        );
-        if(login){
-            navigate("/");
-            toastMessage("Login feito com sucesso", "success");
-        }else {
-            toastMessage("Email ou senha inválidos", "error");
-        };
+        )
+        .then((res) => {
+            if(res){
+                navigate("/");
+                toastMessage("Login feito com sucesso", "success");
+            }else {
+                toastMessage("Email ou senha inválidos", "error");
+            };
+        })
+        .finally(() => {
+            dispatch(setLoading(false));
+        });
     };
 
     return {
