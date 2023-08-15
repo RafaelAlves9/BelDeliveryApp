@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { ClientDataPaths } from "./DataPaths/ClientDataPaths";
-import { AdminDataPaths } from "./DataPaths/AdminDataPaths";
+import { RestaurantDataPaths } from "./DataPaths/RestaurantDataPaths";
 import { CommonDataPaths } from "./DataPaths/CommonDataPaths";
 import Loading from "@shared/Loading/Loading";
 import AuthRequiredRoutes from "./AuthRequiredRoutes";
@@ -34,8 +34,8 @@ const RoutesApp = () => {
           </Route>
           
           {/* private admin routes */}
-          <Route element={<AuthRequiredRoutes roleRoute="admin" />} >
-            {AdminDataPaths.map((common, key) => (
+          <Route element={<AuthRequiredRoutes roleRoute="restaurant" />} >
+            {RestaurantDataPaths.map((common, key) => (
               <Route
                 key={key}
                 path={common.path}

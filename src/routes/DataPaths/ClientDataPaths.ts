@@ -8,15 +8,15 @@ export type TRoutePath = {
 
 export const ClientDataPaths: TRoutePath[] = [
   {
-    path: "/cliente",
+    path: "/",
     element: ClientImports.Home
   },
   {
-    path: "/cliente/home",
+    path: "/home",
     element: ClientImports.Home
   },
   {
-    path: "/cliente/perfil",
+    path: "/perfil",
     element: ClientImports.Perfil
   },
   {
@@ -24,7 +24,7 @@ export const ClientDataPaths: TRoutePath[] = [
     element: ClientImports.Store
   },
   {
-    path: "/cliente/pedidos",
+    path: "/pedidos",
     element: ClientImports.Orders
   },
 ];

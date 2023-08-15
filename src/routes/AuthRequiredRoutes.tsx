@@ -7,8 +7,8 @@ type props = {
 };
 
 const AuthRequiredRoutes = ({ roleRoute }: props) => {
-  const token = getLocalStorageProperty("user", "token");
-  const role = getLocalStorageProperty("user", "role");
+  const token = getLocalStorageProperty("logged", "id");
+  const role = getLocalStorageProperty("logged", "role");
 
   const isAuthorized = () => {
     if (role && token && role === roleRoute) {

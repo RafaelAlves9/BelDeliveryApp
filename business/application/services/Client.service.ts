@@ -1,4 +1,4 @@
-import { IUserInterface } from "../Interfaces/IUser.interface";
+import { IUserInterface } from "../Interfaces/IClient.interface";
 import { db } from "../../../config/firebase/firebaseConfig";
 import { setDoc, doc } from 'firebase/firestore';
 import { getLocalStorageProperty } from "../../../src/utils/getLocalStorageProperty";

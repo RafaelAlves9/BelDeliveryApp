@@ -3,17 +3,15 @@ import { IAuthenticationInterface } from "../Interfaces/IAuthentication.interfac
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { db } from "@config/firebase/firebaseConfig";
 import { where, query, collection, getDocs } from 'firebase/firestore';
-import { ERoles } from "@enums/ERoles";
-import { renderRoleLabel } from "@utils/renderRoleLabel";
 
 export class AuthenticationService implements IAuthenticationInterface {
 
-    async loginWithGoogle(role: ERoles): Promise<any> {
+    async loginWithGoogle(role: "restaurant" | "client"): Promise<boolean> {
         try {
             const login = await signInWithPopup(auth, googleAuth);
-            const isRegistered = await this.checkUserExist(login.user.uid);
+            const isRegistred = await this.checkUserExist(login.user.uid, role);
             
-            if (!isRegistered) {
+            if (!isRegistred) {
                 // registration method
             };
             
@@ -25,7 +23,7 @@ export class AuthenticationService implements IAuthenticationInterface {
         };
     };
 
-    async loginWithEmailAndPassword(email: string, password: string, role: ERoles): Promise<boolean> {
+    async loginWithEmailAndPassword(email: string, password: string, role: "resaurant" | "client"): Promise<boolean> {
         try{
             const login = await signInWithEmailAndPassword(auth, email, password);
             if(login.user){
@@ -38,15 +36,14 @@ export class AuthenticationService implements IAuthenticationInterface {
         };
     };
     
-    async setLocalUserData(id: string, loginRole: ERoles): Promise<any> {
-        const role = renderRoleLabel(loginRole);
+    async setLocalUserData(id: string, role: string): Promise<any> {
         const userData = {id, role};
         
         localStorage.setItem("logged", JSON.stringify(userData));
     };
     
-    async checkUserExist(idUSer: string): Promise<boolean> {
-        const documentation = query(collection(db, 'client'), where("id_user", "==", idUSer));
+    async checkUserExist(idUSer: string, type: string): Promise<boolean> {
+        const documentation = query(collection(db, type), where("id_user", "==", idUSer));
         const querySnapshot = await getDocs(documentation);
         
         return querySnapshot.size > 0;
