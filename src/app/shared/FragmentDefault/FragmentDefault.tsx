@@ -1,7 +1,7 @@
 import * as Styled from "./FragmentDefault.styles";
 import Sidebar from "@shared/Sidebar/Sidebar";
 import { Fragment } from "react";
-import { useAppSelector } from "../../Store/Store";
+import { useAppSelector } from "@store/Store";
 
 type Props = {
     children: React.ReactNode;
