@@ -25,7 +25,7 @@
     "paths": {
       "@utils/*": ["src/utils/*"],
       "@config/*": ["config/*"],
-      "@service/*": ["business/services/*"],
+      "@service/*": ["business/application/services/*"],
       "@interface/*": ["business/interface/*"],
       "@request/*": ["business/models/request/*"],
       "@response/*": ["business/models/response/*"],

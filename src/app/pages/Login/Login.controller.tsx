@@ -2,6 +2,8 @@ import { googleAuth, auth } from "@config/firebase/firebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { UserService } from "@service/User.service";
+import { AuthenticationService } from "@service/Authentication.service";
 
 export enum ELoginStep {
     Initial=1,
@@ -14,26 +16,25 @@ export interface IFormValue {
 
 const UseLoginController = () => {
     const [loginStepScreen, setLoginStepScreen] = useState<ELoginStep>(ELoginStep.Initial);
+    const userService = new UserService();
+    const authenticationService = new AuthenticationService();
 
     const { watch, register, handleSubmit, formState: {errors} } = useForm<IFormValue>({
         defaultValues: {
             email: "",
             password: ""
         }
-    })
+    });
 
     const googleSingIn = () => {
-        signInWithPopup(auth, googleAuth)
-        .then((res) => {
-            console.log("res", res);
-        })
-        .catch((error) => {
-            console.log("error", error);
-        })
+        authenticationService.checkUserExist("qweqw");
     };
     
     const onSubmit = async () => {
-        
+        authenticationService.loginWithEmailAndPassword(
+            watch("email"),
+            watch("password")
+        );
     };
 
     return {

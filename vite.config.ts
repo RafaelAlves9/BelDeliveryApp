@@ -9,7 +9,7 @@ export default defineConfig({
     alias: {
       "@utils": "/src/utils",
       "@config": "/config",
-      "@service": "/business/service",
+      "@service": "/business/application/services",
       "@interface": "/business/interface",
       "@request": "/business/models/request",
       "@response": "/business/models/response",
