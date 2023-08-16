@@ -7,7 +7,7 @@ export const CommonDataPaths: TRoutePath[] = [
     element: CommonImports.Login
   },
   {
-    path: "/register",
+    path: "/cadastro",
     element: CommonImports.Register
   },
   {
@@ -19,7 +19,7 @@ export const CommonDataPaths: TRoutePath[] = [
     element: CommonImports.NotFound
   },
   {
-    path: "/not-authorization",
+    path: "/sem-autorizacao",
     element: CommonImports.NotAuth
   }
 ];

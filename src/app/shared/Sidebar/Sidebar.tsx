@@ -1,21 +1,32 @@
-import React from "react";
-import SidebarLeft from "./SidebarLeft/SidebarLeft";
+import React, { useEffect } from "react";
 import SidebarTop from "./SidebarTop/SidebarTop";
+import CartBar from "./CartBar/CartBar";
+import SidebarLeft from "./SidebarLeft/SidebarLeft";
+import { useAppSelector } from "@store/Store";
+import { useDispatch } from "react-redux";
+import { setOpenCartBar } from "@store/reducers/cartBar/cartBarSlice";
+import { setOpenSideBar } from "@store/reducers/sideBar/sideBarSlice";
 
-type props = {
-    isOpenSideBar: boolean;
-};
+const Sidebar = () => {
+    const { isOpenSideBar } = useAppSelector((state) => state.sideBar);
+    const { isOpenCartBar } = useAppSelector((state) => state.cartBar);
+    const dispatch = useDispatch();
 
-const Sidebar: React.FC<props> = ({ isOpenSideBar }) => {
+    useEffect(() => {
+        if(isOpenCartBar){
+          dispatch(setOpenSideBar(false));
+        };
+        
+        if(isOpenSideBar){
+            dispatch(setOpenCartBar(false));
+        };
+    }, [isOpenSideBar, isOpenCartBar]);
 
     return(
         <React.Fragment>
-           <SidebarLeft
-                isOpen={isOpenSideBar}
-           />
-           <SidebarTop
-                isOpen={isOpenSideBar}
-           />
+            <SidebarTop />
+            <SidebarLeft isOpen={isOpenSideBar} />
+            <CartBar isOpen={isOpenCartBar} />
         </React.Fragment>
     );
 };

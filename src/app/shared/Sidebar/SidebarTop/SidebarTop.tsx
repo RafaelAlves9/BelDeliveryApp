@@ -1,24 +1,12 @@
 import React from "react";
 import * as Styled from "./SidebarTop.styled";
 
-type props = {
-    isOpen: boolean;
-};
-
-const SidebarTop: React.FC<props> = ({ isOpen }) => {
+const SidebarTop = () => {
 
     return(
         <React.Fragment>
             <Styled.Container>
-                {isOpen ? (
-                    <div>
-                        <p>asdasdasd</p>
-                    </div>
-                ): (
-                    <div>
-                        <p>asdasdasd</p>
-                    </div>
-                )}
+                
             </Styled.Container>
         </React.Fragment>
     );

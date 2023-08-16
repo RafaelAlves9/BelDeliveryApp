@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-export const ContentDefault = styled.div<{isOpenSideBar: boolean}>`
-    margin-left: ${props => props.isOpenSideBar ? "17rem" : "6rem"};
-    margin-top: 6rem;
+export const ContentDefault = styled.div`
+    padding: 6rem 0 1rem 0;
     width: fit-content;
     height: fit-content;
-    background-color: red;
 `;
