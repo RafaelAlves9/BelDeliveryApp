@@ -5,7 +5,7 @@ type InitialState = {
 };
 
 const initialState: InitialState = {
-  isOpenSideBar: true,
+  isOpenSideBar: false,
 };
 
 const sideBarSlice = createSlice({

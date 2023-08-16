@@ -11,16 +11,18 @@ const Sidebar = () => {
     const { isOpenSideBar } = useAppSelector((state) => state.sideBar);
     const { isOpenCartBar } = useAppSelector((state) => state.cartBar);
     const dispatch = useDispatch();
+    
+    useEffect(() => {
+        if(isOpenSideBar){
+            dispatch(setOpenCartBar(false));
+        };
+    }, [isOpenSideBar]);
 
     useEffect(() => {
         if(isOpenCartBar){
           dispatch(setOpenSideBar(false));
         };
-        
-        if(isOpenSideBar){
-            dispatch(setOpenCartBar(false));
-        };
-    }, [isOpenSideBar, isOpenCartBar]);
+    }, [isOpenCartBar]);
 
     return(
         <React.Fragment>
