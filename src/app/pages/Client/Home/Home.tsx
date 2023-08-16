@@ -1,9 +1,9 @@
-import * as styles from "./Home.styles";
-import UseHomeController from "./Home.controller";
+//import * as styles from "./Home.styles";
+//import UseHomeController from "./Home.controller";
 import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
 
 const Home = () => {
-    const { Actions } = UseHomeController();
+    //const { Actions } = UseHomeController();
 
     return(
         <FragmentDefault>
