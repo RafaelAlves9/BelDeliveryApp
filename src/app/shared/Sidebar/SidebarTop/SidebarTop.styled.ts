@@ -31,21 +31,32 @@ export const Contente = styled.div`
         align-items: center;
         gap: 2rem;
 
-        span{
-            margin-top: 1rem;
+        svg{
+            margin-top: .5rem;
             font-size: 2.4rem;
             cursor: pointer;
         }
         img{
-            width: 5.2rem;
+            width: 4.5rem;
             height: 100%;
             cursor: pointer;
         }
     }
     input{
         grid-area: inputSearch;
-        width: 80%;
+        width: 70%;
         max-width: 40rem;
+        border: none;
+        outline: none;
+        padding: 1rem;
+        background-color: rgb(0,0,0,0.030);
+        border-radius: .3rem;
+        font-size: 1rem;
+        color: gray;
+
+        &:focus{
+            border: 1px solid #bbb;
+        }
         
         @media screen and (max-width: 54rem) {
             display: none;

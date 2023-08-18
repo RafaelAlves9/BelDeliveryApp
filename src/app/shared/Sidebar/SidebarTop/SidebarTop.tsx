@@ -17,18 +17,19 @@ const SidebarTop = () => {
         <Styled.Container>
             <Styled.Contente>
                 <div>
-                    <span>
-                        <IoIosMenu
-                            onClick={() => dispatch(setOpenSideBar(true))}
-                        />
-                    </span>
+                    <IoIosMenu
+                        onClick={() => dispatch(setOpenSideBar(true))}
+                    />
                     <img
                         src={Logo}
                         alt=""
                         onClick={() => navigate("/")}
                     />
                 </div>
-                <input type="text" />
+                <input
+                    type="text"
+                    placeholder="Pesquisar"
+                />
                 <div>
                     <ImCart
                         onClick={() => dispatch(setOpenCartBar(!isOpenCartBar))}

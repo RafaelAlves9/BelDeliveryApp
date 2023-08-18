@@ -12,14 +12,26 @@ export const BgBar = styled.div<{isOpen: boolean}>`
     display: ${(props)=> props.isOpen ? "block" : "none"};
 `;
 export const Container = styled.div<{isOpen: boolean}>`
-    width: ${(props) => props.isOpen ? "18rem" : "0"};;
+    width: 18rem;
     position: absolute;
     top: 4.1rem;
     bottom: 0;
-    right: 0;
+    right: ${(props) => props.isOpen ? "0" : "-100%"};
     background-color: #fff;
     border-left: 1px solid #bbbb;
     z-index: 999;
     animation: ease-in .3s;
     overflow: hidden;
+    animation: showCartBar .4s;
+
+    @keyframes showCartBar {
+        from{
+            opacity: 0;
+            width: 0;
+        }
+        to{
+            opacity: 1;
+            width: 18rem;
+        }
+    }
 `;
