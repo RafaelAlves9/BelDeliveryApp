@@ -25,6 +25,7 @@ const Login = () => {
                     <styles.ButtonAction
                         number={1}
                         onClick={(() => Actions.googleSingIn())}
+                        id="loginWithGoogle"
                     >
                         <img src={LogoGoogle} alt="" />
                         Continuar com Google
@@ -41,6 +42,7 @@ const Login = () => {
                     </styles.ButtonAction>
                     <styles.ButtonAction
                         number={3}
+                        id="register"
                     >
                         Não tenho conta
                     </styles.ButtonAction>
@@ -52,7 +54,10 @@ const Login = () => {
     const emailLoginForm = () => {
         return(
             <styles.EmailFormContainer onSubmit={Actions.handleSubmit(Actions.onSubmit)}>
-                <styles.BackStep onClick={() => Actions.setLoginStepScreen(ELoginStep.Initial)}>
+                <styles.BackStep
+                    onClick={() => Actions.setLoginStepScreen(ELoginStep.Initial)}
+                    id="backLoginHome"
+                >
                     <BiChevronLeft />
                     <p>Voltar</p>
                 </styles.BackStep>
@@ -81,6 +86,7 @@ const Login = () => {
                     }})}
                     placeholder="Senha"
                     id="password"
+                    type="password"
                 >
                 </styles.Input>
                 {States.errors.password?.type === "required" && (
@@ -92,6 +98,7 @@ const Login = () => {
 
                 <styles.ConfirmButton
                     type="submit"
+                    id="submit"
                 >
                     Continuar
                 </styles.ConfirmButton>

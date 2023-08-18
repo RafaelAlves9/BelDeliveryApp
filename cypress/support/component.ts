@@ -1,5 +1,5 @@
 // ***********************************************************
-// This example support/e2e.ts is processed and
+// This example support/component.ts is processed and
 // loaded automatically before your test files.
 //
 // This is a great place to put global configuration and
@@ -15,7 +15,11 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import { mount } from 'cypress/react18'
+
+// Alternatively you can use CommonJS syntax:
+// require('./commands')
+
+import { mount } from 'cypress/react18';
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
@@ -29,8 +33,7 @@ declare global {
   }
 }
 
-Cypress.Commands.add('mount', mount);
+Cypress.Commands.add('mount', mount)
 
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+// Example use:
+// cy.mount(<MyComponent />)
