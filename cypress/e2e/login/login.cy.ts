@@ -23,7 +23,7 @@ describe('login test', () => {
 
   });
 
-  it.skip('validation input error email and password', () => {
+  it('validation input error email and password', () => {
     cy.visit('/login');
     
     const loginWithEmail = cy.get('#loginWithEmail');
@@ -40,7 +40,7 @@ describe('login test', () => {
     cy.contains('Senha deve ter entre 6 a 60 caracteres');
   });
 
-  it.skip('error login with email', () => {
+  it('error login with email', () => {
     cy.visit('/login');
     
     const loginWithEmail = cy.get('#loginWithEmail');
@@ -60,7 +60,7 @@ describe('login test', () => {
     cy.contains('Email ou senha inválidos');
   });
   
-  it.skip('sucess login with email', () => {
+  it('sucess login with email', () => {
     cy.visit('/login');
     
     const loginWithEmail = cy.get('#loginWithEmail');
@@ -81,7 +81,7 @@ describe('login test', () => {
     cy.url().should('include', '/');
   });
   
-  it.skip('open home client page', () => {
+  it('open home client page', () => {
     login();
     cy.visit('/home');
   });

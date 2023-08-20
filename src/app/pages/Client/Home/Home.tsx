@@ -1,4 +1,4 @@
-//import * as styles from "./Home.styles";
+import * as styles from "./Home.styles";
 //import UseHomeController from "./Home.controller";
 import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
 
@@ -7,7 +7,13 @@ const Home = () => {
 
     return(
         <FragmentDefault>
-            <h1>Home</h1>
+            <styles.SearchSectionHome>
+                <h1>Olá <span>Rafael Alves</span>, seja bem-vindo!</h1>
+                <input
+                    type="text"
+                    placeholder="Encontre seu novo restaurante favorito"
+                />
+            </styles.SearchSectionHome>
         </FragmentDefault>
     );
 };

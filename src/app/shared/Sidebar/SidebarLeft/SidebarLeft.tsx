@@ -48,7 +48,10 @@ const SidebarLeft = ({ isOpen }: props) => {
                     {ItemList.map((item, index) => (
                         <Styled.Item
                             key={index}
-                            onClick={() => navigate(item)}
+                            onClick={() => {
+                                dispatch(setOpenSideBar(false));
+                                navigate(`/${item}`);
+                            }}
                             isActive={route === item}
                         >
                             {item.toLocaleUpperCase()}

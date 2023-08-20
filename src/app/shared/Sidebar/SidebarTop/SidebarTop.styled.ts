@@ -33,11 +33,11 @@ export const Contente = styled.div`
 
         svg{
             margin-top: .5rem;
-            font-size: 2.4rem;
+            font-size: 1.8rem;
             cursor: pointer;
         }
         img{
-            width: 4.5rem;
+            width: 4.2rem;
             height: 100%;
             cursor: pointer;
         }
@@ -51,7 +51,7 @@ export const Contente = styled.div`
         padding: 1rem;
         background-color: rgb(0,0,0,0.030);
         border-radius: .3rem;
-        font-size: 1rem;
+        font-size: .9rem;
         color: gray;
 
         &:focus{
@@ -64,7 +64,7 @@ export const Contente = styled.div`
     }
     div:last-of-type{
         grid-area: cartIcon;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         padding-top: 0.5rem;
         cursor: pointer;
         color: var(--gray);
