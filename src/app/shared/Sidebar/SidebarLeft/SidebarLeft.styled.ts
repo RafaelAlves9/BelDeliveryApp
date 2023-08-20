@@ -13,31 +13,26 @@ export const BgBar = styled.div<{isOpen: boolean}>`
 `;
 export const ContainerBar = styled.div<{isOpen: boolean}>`
     width: 18rem;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
-    left: ${props => (props.isOpen ? '0' : '-250px')};
+    left: ${props => (props.isOpen ? '0' : '-18.5rem')};
     background-color: #fff;
     border-right: 1px solid #bbbb;
     z-index: 999;
     overflow-x: hidden;
-    animation: showSideBar .4s;
+    animation: showSideBar .3s;
 
     display: flex;
     flex-direction: column;
-
-    p{
-        padding-left: 3rem;
-        font-size: 1.1rem;
-        font-weight: 500;
-    }
+    justify-content: space-between;
     
     @keyframes showSideBar {
-        from{
+        0%{
             opacity: 0;
             width: 0;
         }
-        to{
+        100%{
             opacity: 1;
             width: 18rem;
         }
@@ -66,22 +61,49 @@ export const Line = styled.span`
     margin-bottom: .5rem;
     width: 100%;
     height: .05rem;
-    background-color: #bbbbbb;
+    background-color: rgb(0,0,0,0.1);
 
     &:not(:first-of-type){
         margin: .5rem 0;
     }
 `;
-export const ItemContainer = styled.div`
+export const NameContainer = styled.div`
+    padding: 1.5rem 0;
+    width: 100%;
+    p{
+        padding-left: 3rem;
+        font-size: 1.2rem;
+
+        >span{
+            font-weight: 700;
+        }
+    }
+`
+export const ItemContainer = styled.ul`
     margin: 1rem 0;
     width: 100%;
     text-align: left;
 `
-export const Item = styled.div<{ isActive: boolean }>`
-    padding: .5rem 0 .5rem 2.5rem;
-    font-size: 1rem;
+export const Item = styled.li<{ isActive: boolean }>`
+    padding: .7rem 0 .5rem 2.5rem;
+    font-size: .95rem;
     font-weight: 550;
     color: gray;
     border-left: ${(props) => props.isActive ? ".5rem solid var(--green-main)" : ".5rem solid transparent" };
     cursor: pointer;
+`
+export const Logout = styled.div`
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+
+    >svg{
+        font-size: 1.5rem;
+    }
+    >p{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
 `

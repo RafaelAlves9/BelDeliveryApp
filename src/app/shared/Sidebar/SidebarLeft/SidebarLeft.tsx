@@ -5,6 +5,8 @@ import { setOpenSideBar } from "@store/reducers/sideBar/sideBarSlice";
 import Logo from "@assets/logo.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GrLogout } from "react-icons/gr";
+import React from "react";
 
 type props = {
     isOpen: boolean;
@@ -27,39 +29,64 @@ const SidebarLeft = ({ isOpen }: props) => {
         } else setRoute("home");
     };
 
+    const logoutMethod = (): void => {
+        const navigate = useNavigate();
+      
+        localStorage.removeItem("logged");
+        navigate("/login");
+    };
+
     useEffect(() => {
         getCurrentParamRoute();
     }, [param]);
 
     return(
-        <Styled.BgBar isOpen={isOpen}>
+        <React.Fragment>
             <Styled.ContainerBar isOpen={isOpen}>
-                <Styled.Header>
-                    <img src={Logo} alt="" />
-                    <span onClick={() => dispatch(setOpenSideBar(false))}>
-                        <AiFillCloseCircle />
-                    </span>
-                </Styled.Header>
-                <Styled.Line />
+                <div>
+                    <Styled.Header>
+                        <img src={Logo} alt="" />
+                        <span onClick={() => dispatch(setOpenSideBar(false))}>
+                            <AiFillCloseCircle />
+                        </span>
+                    </Styled.Header>
+                    <Styled.Line />
+                    <hr />
 
-                <p>MEU MENU</p>
-                
-                <Styled.ItemContainer>
-                    {ItemList.map((item, index) => (
-                        <Styled.Item
-                            key={index}
-                            onClick={() => {
-                                dispatch(setOpenSideBar(false));
-                                navigate(`/${item}`);
-                            }}
-                            isActive={route === item}
-                        >
-                            {item.toLocaleUpperCase()}
-                        </Styled.Item>
-                    ))}
-                </Styled.ItemContainer>
+                    <Styled.NameContainer>
+                        <p>
+                            Olá, <span>Rafael Alves</span>!
+                        </p>
+                    </Styled.NameContainer>
+                    <hr />
+
+                    <Styled.ItemContainer>
+                        {ItemList.map((item, index) => (
+                            <Styled.Item
+                                key={index}
+                                onClick={() => {
+                                    dispatch(setOpenSideBar(false));
+                                    navigate(`/${item}`);
+                                }}
+                                isActive={route === item}
+                            >
+                                {item.toLocaleUpperCase()}
+                            </Styled.Item>
+                        ))}
+                    </Styled.ItemContainer>
+                </div>
+                <div>
+                    <Styled.Logout onClick={() => logoutMethod()}>
+                        <GrLogout />
+                        Logout
+                    </Styled.Logout>
+                </div>
             </Styled.ContainerBar>
-        </Styled.BgBar>
+            <Styled.BgBar
+                isOpen={isOpen}
+                onClick={() => dispatch(setOpenSideBar(false))}
+            />
+        </React.Fragment>
     );
 };
 
