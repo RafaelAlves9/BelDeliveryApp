@@ -1,8 +1,10 @@
 import * as styles from "./Home.styles";
 //import UseHomeController from "./Home.controller";
 import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
-import Image from "@assets/pizza-logo.jpg";
 import { useNavigate } from "react-router-dom";
+import Lanch from "@assets/lanchonete-category.png";
+import Pizzaria from "@assets/pizza-category.webp";
+import Hamb from "@assets/hamburguer-category.png";
 
 interface Category {
     img: string;
@@ -16,17 +18,17 @@ const Home = () => {
 
     const categoryList: Category[] = [
         {
-            img: Image,
+            img: Lanch,
             title: "Lanchonete",
             route: "lanchonete"
         },
         {
-            img: Image,
+            img: Pizzaria,
             title: "Pizzaria",
             route: "pizzaria"
         },
         {
-            img: Image,
+            img: Hamb,
             title: "Hamburgueria",
             route: "hamburgueria"
         }

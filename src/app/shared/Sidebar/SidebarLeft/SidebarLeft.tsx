@@ -31,6 +31,7 @@ const SidebarLeft = ({ isOpen }: props) => {
 
     const logoutMethod = (): void => {
         localStorage.removeItem("logged");
+        dispatch(setOpenSideBar(false));
         navigate("/login");
     };
 

@@ -50,18 +50,20 @@ export const CategorySection = styled.section`
         text-align: left;
     }
     >div{
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
 
         >div{
             width: 30%;
-            max-width: 10rem;
+            max-width: 11rem;
             cursor: pointer;
             overflow: hidden;
 
             img{
-                width: 100%;
+                width: 90%;
+                height: 75%;
             }
             p{
                 font-size: 1rem;
