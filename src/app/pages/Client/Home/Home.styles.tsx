@@ -40,3 +40,35 @@ export const SearchSectionHome = styled.section`
         }
     }
 `
+export const CategorySection = styled.section`
+    margin: 0 auto 2rem auto;
+    width: 95%;
+    
+    >h2{
+        padding: 2rem 0;
+        font-size: 1.5rem;
+        text-align: left;
+    }
+    >div{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        >div{
+            width: 30%;
+            max-width: 10rem;
+            cursor: pointer;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+            }
+            p{
+                font-size: 1.1rem;
+                color: #000;
+                font-weight: 600;
+            }
+        }
+    }
+
+`
