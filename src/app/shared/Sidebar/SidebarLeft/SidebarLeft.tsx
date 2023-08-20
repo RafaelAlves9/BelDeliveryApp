@@ -30,8 +30,6 @@ const SidebarLeft = ({ isOpen }: props) => {
     };
 
     const logoutMethod = (): void => {
-        const navigate = useNavigate();
-      
         localStorage.removeItem("logged");
         navigate("/login");
     };
