@@ -64,9 +64,15 @@ export const CategorySection = styled.section`
                 width: 100%;
             }
             p{
-                font-size: 1.1rem;
+                font-size: 1rem;
                 color: #000;
                 font-weight: 600;
+            }
+
+            @media all and (min-width: 54rem) {
+                p{
+                    font-size: 1.2rem;
+                }
             }
         }
     }

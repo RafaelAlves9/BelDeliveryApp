@@ -1,3 +1,4 @@
+import Footer from "@shared/Footer/Footer";
 import * as Styled from "./FragmentDefault.styles";
 import Sidebar from "@shared/Sidebar/Sidebar";
 import { Fragment } from "react";
@@ -14,6 +15,7 @@ const FragmentDefault = ({ children }: Props) => {
             <Styled.ContentDefault>
                 {children}
             </Styled.ContentDefault>
+            <Footer />
         </Fragment>
     );
 };
