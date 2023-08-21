@@ -37,15 +37,16 @@ export const ContainerLogo = styled.div`
     };
 `;
 export const ContainerForm = styled.div`
+    width: 100%;
     grid-area: form;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 99;
     
     @media screen and (max-width: 54rem) {
-        z-index: 99;
         background-color: rgb(0,0,0,0.4);
     };
 `;
@@ -55,7 +56,6 @@ export const Tittle = styled.h1`
     font-weight: 800;
     
     @media screen and (max-width: 54rem) {
-        font-size: 1.6rem;
         color: #fff;
     };
 `;
@@ -99,78 +99,81 @@ export const ButtonAction = styled.button<{number: number}>`
         background-color: transparent;
     };
 `;
-export const EmailIcon = styled.div`
-    padding-top: 0.7rem;
-    font-size: 2.4rem;
-    color: var(--green-main);
-`;
-
 export const EmailFormContainer = styled.form`
-    width: 35rem;
+    width: 100%;
+    max-width: 35rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     
     @media screen and (max-width: 54rem) {
         width: 85%;
     };
 `;
-export const BackStep = styled.div`
-    margin-bottom: 1rem;
+export const GridContainer = styled.div`
+    width: 80%;
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-areas:
+    "name name"
+    "email email"
+    "cel cel"
+    "password password2";
+    gap: .7rem 2.5rem;
+`
+export const InputGroup = styled.label`
     width: 100%;
+    height: fit-content;
     text-align: left;
-    font-size: 2rem;
-    color: #000;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
 
-    p{
-        font-size: 1rem;
-    }
-    
-    @media screen and (max-width: 54rem) {
-        position: fixed;
-        top: 1rem;
-        left: .5rem;
+    >p{
         color: #fff;
-    };
-`;
-export const Input = styled.input`
-    width: 85%;
-    padding: .8rem;
-    outline: none;
-    border: none;
-    background-color: #F7F8F9;
-    border-bottom: 3px solid transparent;
+        font-weight: 500;
+    
+        @media screen and (min-width: 54rem) {
+            color: #000;
+        };
+    }
+    >input{
+        width: 100%;
+        padding: .8rem;
+        outline: none;
+        border: none;
+        background-color: #F7F8F9;
+        border-bottom: 3px solid transparent;
+        
+        &:focus{
+            border-bottom: 3px solid var(--green-main);
+        }
+    }
     
     &:nth-of-type(1){
-        margin-top: 2.5em;
+        grid-area: name;
     }
-    &:not(:nth-of-type(1)){
-        margin-top: 1rem;
+    &:nth-of-type(2){
+        grid-area: email;
     }
-    
-    &:focus{
-        border-bottom: 3px solid var(--green-main);
+    &:nth-of-type(3){
+        grid-area: cel;
     }
-    
-    @media screen and (max-width: 54rem) {
-        width: 100%;
-    };
-`;
+    &:nth-of-type(4){
+        grid-area: password;
+    }
+    &:nth-of-type(5){
+        grid-area: password2;
+    }
+`
 export const ErrorMessenge = styled.span`
-    padding-top: 0.3rem;
-    width: 85%;
+    width: 90%;
     text-align: left;
     color: #ff0000db;
     font-size: .8rem;
     font-weight: 700;
-    
-    @media screen and (max-width: 54rem) {
-        width: 100%;
-    };
+    text-align: left;
 `
 export const ConfirmButton = styled.button`
     margin-top: 2rem;

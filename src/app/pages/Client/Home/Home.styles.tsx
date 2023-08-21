@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SearchSectionHome = styled.section`
     width: 100%;
-    height: 30rem;
+    height: 33rem;
     background-color: var(--orange);
     display: flex;
     flex-direction: column;
