@@ -6,8 +6,6 @@ Esse é um sistema delivery multitenancy que está sendo planejado, desenvolvido
 
 Necessário a instalação do Node e configurar chaves de acesso Firebase, uma vez que estas são privadas e individuais e não estão disponíveis no projeto.
 
-Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
-
 ### 🔧 Instalação
 
 npm install
@@ -20,17 +18,21 @@ npm run test
 
 Rodando em produção pela Vercel, com configurações específicas para o Vite e definição de variáveis de ambiente dentro da plataforma nas configurações de deploy.
 
-## 🛠️ Construído com
+## 🛠️ Tecnologias/Estruturas utilizadas
 
 * React (vite)
 * NPM
 * Typescript
 * Cypress - Testes de integração e componentes
-* Typescript
-* Typescript
-* Typescript
-* Typescript
-* Typescript
+* Firebase - Servidor e banco de dados remoto
+* Redux - Gerenciador de estados globais
+* React-hook-form - Manipulador de formulários
+* React-router-dom - Gerenciador de rotas do sistema
+* Styled-components - Estilização JS in CSS para melhor padronização de estilos do sistema
+* Responsividade total das telas
+* Clean Code
+* Componentização de elementos reutilizáveis
+* Estrutura de projeto com Services, Interfaces e Controllers para melhor organização do projeto
 
 ## 📌 Versão
 
@@ -38,24 +40,8 @@ Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as vers�
 
 ## ✒️ Autores
 
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
-
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
+* Planejado, Desenvolvido e Testado 100% por Rafael Alves: https://www.linkedin.com/in/rafael-alves412/
 
 ## 📄 Licença
 
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
-
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢;
-* Convide alguém da equipe para uma cerveja 🍺;
-* Um agradecimento publicamente 🫂;
-* etc.
-
-
----
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
+MIT
