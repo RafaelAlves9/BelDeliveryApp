@@ -36,7 +36,7 @@ Rodando em produção pela Vercel, com configurações específicas para o Vite 
 
 ## 📌 Versão
 
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
+Versão 1 ainda sendo desenvolvida.
 
 ## ✒️ Autores
 
