@@ -1,27 +1,64 @@
-# React + TypeScript + Vite
+BELDELIVERY
+Esse é um sistema delivery multitenancy que está sendo desenvolvido 100% por mim, afim de export minhas habilidades de desenvolvimento de software. Ainda está em construção mas já pode ser acessado em produção em https://bel-delivery-app.vercel.app/login.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Rodando o projeto
+Necessário a instalação do Node e configurar chaves de acesso Firebase, uma vez que estas são privadas e individuais e não estão disponíveis no projeto.
 
-Currently, two official plugins are available:
+Consulte Implantação para saber como implantar o projeto.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📋 Pré-requisitos
+Necess
 
-## Expanding the ESLint configuration
+Dar exemplos
+🔧 Instalação
+Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Diga como essa etapa será:
 
-- Configure the top-level `parserOptions` property like this:
+Dar exemplos
+E repita:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+Até finalizar
+Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+⚙️ Executando os testes
+Explicar como executar os testes automatizados para este sistema.
+
+🔩 Analise os testes de ponta a ponta
+Explique que eles verificam esses testes e porquê.
+
+Dar exemplos
+⌨️ E testes de estilo de codificação
+Explique que eles verificam esses testes e porquê.
+
+Dar exemplos
+📦 Implantação
+Adicione notas adicionais sobre como implantar isso em um sistema ativo
+
+🛠️ Construído com
+Mencione as ferramentas que você usou para criar seu projeto
+
+Dropwizard - O framework web usado
+Maven - Gerente de Dependência
+ROME - Usada para gerar RSS
+🖇️ Colaborando
+Por favor, leia o COLABORACAO.md para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
+
+📌 Versão
+Nós usamos SemVer para controle de versão. Para as versões disponíveis, observe as tags neste repositório.
+
+✒️ Autores
+Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
+
+Um desenvolvedor - Trabalho Inicial - umdesenvolvedor
+Fulano De Tal - Documentação - fulanodetal
+Você também pode ver a lista de todos os colaboradores que participaram deste projeto.
+
+📄 Licença
+Este projeto está sob a licença (sua licença) - veja o arquivo LICENSE.md para detalhes.
+
+🎁 Expressões de gratidão
+Conte a outras pessoas sobre este projeto 📢;
+Convide alguém da equipe para uma cerveja 🍺;
+Um agradecimento publicamente 🫂;
+etc.
