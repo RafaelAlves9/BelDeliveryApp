@@ -1,6 +1,5 @@
-import { TAddressUserSchema, TRegisterUserSchema } from "../../models/entities/request/UserSchema";
+import { TClientUserDataSchemaResponse } from "../../models/entities/response/ClientUserDataResponse";
 
 export interface IClientInterface {
-    registerUser(user: TRegisterUserSchema): Promise<boolean>;
-    addressUser(address: TAddressUserSchema): Promise<boolean>;
+    getClient(id: string): Promise<TClientUserDataSchemaResponse>;
 };

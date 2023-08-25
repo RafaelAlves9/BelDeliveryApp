@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toastMessage } from "@utils/toastMessage";
 import { useDispatch } from "react-redux";
 import { setLoading } from "@store/reducers/loading/loadingSlice";
+import { useEffect } from "react";
+import { useAppSelector } from "@store/Store";
 
 export enum ELoginStep {
     Initial=1,
@@ -15,6 +17,7 @@ export interface IFormValue {
 };
 
 const UseHomeController = () => {
+    const { client } = useAppSelector((state) => state.clientData);
     const authenticationService = new AuthenticationService();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -46,6 +49,10 @@ const UseHomeController = () => {
         });
     };
 
+    useEffect(() => {
+      
+    }, []);
+
     return {
         Actions: {
             handleSubmit: handleSubmit,
@@ -54,6 +61,7 @@ const UseHomeController = () => {
         States: {
             errors: errors,
             watch: watch,
+            client
         },
         Setters: {
             register: register

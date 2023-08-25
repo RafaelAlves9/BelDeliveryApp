@@ -5,4 +5,6 @@ export const rootReducer = combineReducers({
   loading: Reducers.loadingSlice,
   sideBar: Reducers.sideBarSlice,
   cartBar: Reducers.cartBarSlice,
+  clientData: Reducers.clientDataSlice,
+  restaurantData: Reducers.restaurantDataSlice,
 });

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
 import React from "react";
+import { useAppSelector } from "@store/Store";
 
 type props = {
     isOpen: boolean;
@@ -14,6 +15,7 @@ type props = {
 
 const SidebarLeft = ({ isOpen }: props) => {
     const [route, setRoute] = useState<string>("home");
+    const { client } = useAppSelector((state) => state.clientData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const param = window.location.href;
@@ -54,7 +56,7 @@ const SidebarLeft = ({ isOpen }: props) => {
 
                     <Styled.NameContainer>
                         <p>
-                            Olá, <span>Rafael Alves</span>!
+                            Olá, <span>{client.userName}</span>!
                         </p>
                     </Styled.NameContainer>
                     <hr />

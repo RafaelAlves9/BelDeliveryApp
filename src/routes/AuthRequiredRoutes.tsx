@@ -25,7 +25,7 @@ const AuthRequiredRoutes = ({ roleRoute }: props) => {
   if (isAuthorized()) {
     return <Outlet />;
   } else {
-    return <Navigate to="/sem-autorizacao"/>;
+    return <Navigate to="/login"/>;
   };
 };
 

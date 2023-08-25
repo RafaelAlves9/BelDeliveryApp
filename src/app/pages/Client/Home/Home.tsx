@@ -1,5 +1,5 @@
 import * as styles from "./Home.styles";
-//import UseHomeController from "./Home.controller";
+import UseHomeController from "./Home.controller";
 import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
 import { useNavigate } from "react-router-dom";
 import Lanch from "@assets/lanchonete-category.png";
@@ -13,7 +13,7 @@ interface Category {
 }
 
 const Home = () => {
-    //const { Actions } = UseHomeController();
+    const { States } = UseHomeController();
     const navigate = useNavigate();
 
     const categoryList: Category[] = [
@@ -37,7 +37,7 @@ const Home = () => {
     return(
         <FragmentDefault>
             <styles.SearchSectionHome>
-                <h1>Olá <span>Rafael Alves</span>, seja bem-vindo!</h1>
+                <h1>Olá <span>{States.client.userName}</span>, seja bem-vindo!</h1>
                 <input
                     type="text"
                     placeholder="Encontre seu novo restaurante favorito"

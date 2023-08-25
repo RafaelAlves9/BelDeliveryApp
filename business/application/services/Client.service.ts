@@ -1,30 +1,24 @@
-import { IUserInterface } from "../Interfaces/IClient.interface";
+import { IClientInterface } from "../Interfaces/IClient.interface";
 import { db } from "../../../config/firebase/firebaseConfig";
-import { setDoc, doc } from 'firebase/firestore';
-import { getLocalStorageProperty } from "../../../src/utils/getLocalStorageProperty";
-import { TAddressUserSchema, TRegisterUserSchema } from "../../models/entities/request/UserSchema";
+import { getDocs, collection, query, where, getDoc } from 'firebase/firestore';
+import { TClientUserDataSchemaResponse } from "../../models/entities/response/ClientUserDataResponse";
 
-export class ClientService implements IUserInterface {
-    private _idUser = getLocalStorageProperty("user", "id");
+export class ClientService implements IClientInterface {
 
-    async addressUser(address: TAddressUserSchema): Promise<any> {
-        await setDoc(doc(db, 'address'), address)
-        .then((res) => {
-            console.log("res", res);
-            return true;
-        })
-        .catch((error) => {
-            return true;
-        });
+    async getClient(id: string): Promise<TClientUserDataSchemaResponse> {
+        try{
+            const queryDoc = await query(collection(db, "client"), where("id_user", "==", id));
+            const client = await getDocs(queryDoc);
+           
+            if(client.size > 0){
+                const clientData = client.docs[0].data() as TClientUserDataSchemaResponse;
+                console.log("clientData", clientData)
+                return clientData;
+            } else {
+                throw new Error("Usuário não encontrado");
+            };
+        } catch (error){
+            throw error;
+        };
     };
-
-    async registerUser(user: TRegisterUserSchema): Promise<any> {
-        await setDoc(doc(db, 'user'), user)
-        .then((res) => {
-            console.log("res", res);
-        })
-        .catch((error) => {
-
-        });
-    };
-}
+};
