@@ -1,8 +1,13 @@
-
+import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
+import * as Styles from "./Perfil.styles";
 
 const Perfil = () => {
     return(
-        <h1>Perfil</h1>
+        <FragmentDefault>
+            <Styles.PerfilContainer>
+                
+            </Styles.PerfilContainer>
+        </FragmentDefault>
     );
 };
 
