@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BgLoading = styled.div`
+export const BgLoading = styled.div<{ isOpen: boolean }>`
     width: 100%;
     height: 100%;
     position: fixed;
@@ -9,7 +9,7 @@ export const BgLoading = styled.div`
     left: 0;
     background-color: rgb(0,0,0,0.400);
 
-    display: flex;
+    display: ${props => (props.isOpen ? 'flex' : 'none')};
     justify-content: center;
     align-items: center;
 `;

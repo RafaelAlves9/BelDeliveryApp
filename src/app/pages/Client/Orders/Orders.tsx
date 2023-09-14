@@ -1,7 +1,12 @@
 import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
 import * as Styles from "./Orders.styles";
+import OrderModal from "./OrderModal/OrderModal";
+import { useDispatch } from "react-redux";
+import { setIsModalOrderOpen } from "@store/reducers/order/orderSlice";
 
 const Orders = () => {
+    const dispatch = useDispatch();
+
     return(
         <FragmentDefault>
             <Styles.OrdersContainer>
@@ -24,7 +29,7 @@ const Orders = () => {
                         </div>
                         <hr />
                         <div>
-                            <p>
+                            <p onClick={() => dispatch(setIsModalOrderOpen(true))}>
                                 Visualizar
                             </p>
                             <p>
@@ -106,6 +111,7 @@ const Orders = () => {
                     </Styles.OrderCard>
                 </Styles.ContentOrders>
             </Styles.OrdersContainer>
+            <OrderModal />
         </FragmentDefault>
     );
 };

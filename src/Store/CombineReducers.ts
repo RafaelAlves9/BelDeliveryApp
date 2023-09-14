@@ -7,4 +7,5 @@ export const rootReducer = combineReducers({
   cartBar: Reducers.cartBarSlice,
   clientData: Reducers.clientDataSlice,
   restaurantData: Reducers.restaurantDataSlice,
+  orders: Reducers.orderSlice,
 });

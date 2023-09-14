@@ -1,7 +1,15 @@
 import * as superstruct from "superstruct";
-import { AddressResponse } from "./AddressResponse";
 
+export const ClientAddressResponse = superstruct.object({
+  id_user: superstruct.string(),
+  cep: superstruct.string(),
+  streeth: superstruct.string(),
+  city: superstruct.string(),
+  state: superstruct.string(),
+  country: superstruct.string(),
+});
 export const ClientUserData = superstruct.object({
+  address: ClientAddressResponse,
   id_user: superstruct.string(),
   userName: superstruct.string(),
   createdDate: superstruct.date(),
@@ -9,7 +17,6 @@ export const ClientUserData = superstruct.object({
   active: superstruct.boolean(),
   initialAction: superstruct.date(),
   finishAction: superstruct.date(),
-  address: AddressResponse,
 });
 
 export type TClientUserDataSchemaResponse = superstruct.Infer<typeof ClientUserData>;

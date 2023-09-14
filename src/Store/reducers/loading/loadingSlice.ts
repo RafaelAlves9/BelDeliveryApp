@@ -9,7 +9,7 @@ const initialState: InitialState = {
 };
 
 const loadingSlice = createSlice({
-  name: "loadingSlice",
+  name: "orderSlice",
   initialState,
   reducers: {
     setLoading(state, { payload }: PayloadAction<boolean>) {

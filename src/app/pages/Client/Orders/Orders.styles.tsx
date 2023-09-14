@@ -72,13 +72,16 @@ export const OrderCard = styled.div`
         }
     }
     >div:nth-of-type(3){
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        text-align: center;
-        color: var(--orange);
+        display: flex;
+        justify-content: center;
+        gap: 30%;
 
         >p{
+            text-align: center;
+            width: fit-content;
             font-weight: 700;
+            cursor: pointer;
+            color: var(--orange);
         }
     }
 

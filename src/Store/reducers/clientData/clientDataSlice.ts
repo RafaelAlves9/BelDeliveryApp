@@ -18,7 +18,6 @@ const initialState: InitialState = {
       id_user: "",
       cep: "",
       streeth: "",
-      district: "",
       city: "",
       state: "",
       country: ""

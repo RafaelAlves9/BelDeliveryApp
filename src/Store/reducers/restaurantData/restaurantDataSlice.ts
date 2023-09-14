@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { TRestaurantUserDataSchemaResponse } from "@response/RestaurantUserDataResponse";
+import { TRestaurantDataSchemaResponse } from "@response/RestaurantUserDataResponse";
 
 type InitialState = {
-  restaurant: TRestaurantUserDataSchemaResponse;
+  restaurant: TRestaurantDataSchemaResponse;
 };
 
 const initialState: InitialState = {
@@ -18,7 +18,6 @@ const initialState: InitialState = {
       id_user: "",
       cep: "",
       streeth: "",
-      district: "",
       city: "",
       state: "",
       country: ""
@@ -30,7 +29,7 @@ const restaurantDataSlice = createSlice({
   name: "restaurantDataSlice",
   initialState,
   reducers: {
-    setRestaurantData(state, { payload }: PayloadAction<TRestaurantUserDataSchemaResponse>) {
+    setRestaurantData(state, { payload }: PayloadAction<TRestaurantDataSchemaResponse>) {
       state.restaurant = payload;
     },
   },

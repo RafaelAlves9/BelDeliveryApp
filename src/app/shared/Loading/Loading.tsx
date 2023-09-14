@@ -12,11 +12,9 @@ const Loading = ({ isLoadingParam = false }: props) => {
 
     return(
         <React.Fragment>
-            {(isLoading || isLoadingParam) && (
-                <Styled.BgLoading>
-                    <Styled.Gif src={LoadingGif} alt="" />
-                </Styled.BgLoading>
-            )}
+            <Styled.BgLoading isOpen={isLoading || isLoadingParam}>
+                <Styled.Gif src={LoadingGif} alt="" />
+            </Styled.BgLoading>
         </React.Fragment>
     );
 };
