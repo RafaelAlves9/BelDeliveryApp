@@ -4,9 +4,14 @@ import * as Styles from "./Perfil.styles";
 const Perfil = () => {
     return(
         <FragmentDefault>
-            <Styles.PerfilContainer>
+            <Styles.Container>
+                <Styles.NavBar>
                 
-            </Styles.PerfilContainer>
+                </Styles.NavBar>
+                <Styles.Content>
+                
+                </Styles.Content>
+            </Styles.Container>
         </FragmentDefault>
     );
 };
