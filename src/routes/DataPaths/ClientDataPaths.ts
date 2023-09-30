@@ -31,4 +31,8 @@ export const ClientDataPaths: TRoutePath[] = [
     path: "/restaurantes",
     element: ClientImports.Orders
   },
+  {
+    path: "/categorias/:category",
+    element: ClientImports.Categories
+  },
 ];
