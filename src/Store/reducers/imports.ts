@@ -4,6 +4,7 @@ import cartBarSlice from "./cartBar/cartBarSlice";
 import clientDataSlice from "./clientData/clientDataSlice";
 import restaurantDataSlice from "./restaurantData/restaurantDataSlice";
 import orderSlice from "./order/orderSlice";
+import perfilSlice from "./perfil/perfilSlice";
 
 export {
   loadingSlice,
@@ -12,4 +13,5 @@ export {
   clientDataSlice,
   restaurantDataSlice,
   orderSlice,
+  perfilSlice,
 };

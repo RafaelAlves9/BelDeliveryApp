@@ -8,4 +8,5 @@ export const rootReducer = combineReducers({
   clientData: Reducers.clientDataSlice,
   restaurantData: Reducers.restaurantDataSlice,
   orders: Reducers.orderSlice,
+  perfil: Reducers.perfilSlice,
 });

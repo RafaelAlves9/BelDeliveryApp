@@ -29,7 +29,7 @@ export const NavBar = styled.section`
 
         >svg{
             margin: 0 1rem;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: var(--green-main);
         }
         >p{
