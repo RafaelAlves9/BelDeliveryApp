@@ -1,6 +1,6 @@
 import { IClientInterface } from "../Interfaces/IClient.interface";
 import { db } from "../../../config/firebase/firebaseConfig";
-import { getDocs, collection, query, where, getDoc } from 'firebase/firestore';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 import { TClientUserDataSchemaResponse } from "../../models/entities/response/ClientUserDataResponse";
 
 export class ClientService implements IClientInterface {
