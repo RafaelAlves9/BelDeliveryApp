@@ -63,14 +63,25 @@ export const Contente = styled.div`
         };
     }
     div:last-of-type{
-        grid-area: cartIcon;
-        font-size: 1.5rem;
-        padding-top: 0.5rem;
-        cursor: pointer;
-        color: var(--gray);
+        display: flex;
+        align-items: center;
+        gap: .7rem;
 
-        &:hover{
-            color: #bbbbbb;
+        >svg{
+            grid-area: cartIcon;
+            font-size: 2rem;
+            padding-top: 0.5rem;
+            cursor: pointer;
+            color: var(--gray);
+
+            &:hover{
+                color: #bbbbbb;
+            }
+        }
+        >p{
+            margin-top: .5rem;
+            font-size: .9rem;
+            color: var(--gray);
         }
     }
 

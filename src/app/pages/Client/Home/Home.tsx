@@ -38,13 +38,10 @@ const Home = () => {
         <FragmentDefault>
             <styles.SearchSectionHome>
                 <h1>Olá <span>{States.client.userName}</span>, seja bem-vindo!</h1>
-                <input
-                    type="text"
-                    placeholder="Encontre seu novo restaurante favorito"
-                />
+                <h2>Navegue e descubra seu novo restaurante favorito!</h2>
             </styles.SearchSectionHome>
             <styles.CategorySection>
-                <h2>Selecione por categoria</h2>
+                <h2>Navegue por categoria</h2>
                 <div>
                     {categoryList.map((category, index) => (
                         <div

@@ -26,14 +26,12 @@ const SidebarTop = () => {
                         onClick={() => navigate("/")}
                     />
                 </div>
-                <input
-                    type="text"
-                    placeholder="Pesquisar"
-                />
+                
                 <div>
                     <ImCart
                         onClick={() => dispatch(setOpenCartBar(!isOpenCartBar))}
                     />
+                    <p>R$ 00,00</p>
                 </div>
             </Styled.Contente>
         </Styled.Container>

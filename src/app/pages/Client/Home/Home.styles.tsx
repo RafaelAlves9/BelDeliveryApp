@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const SearchSectionHome = styled.section`
     width: 100%;
-    height: 33rem;
-    background-color: var(--orange);
+    height: 25rem;
+    background-color: var(--green-main);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,6 +18,11 @@ export const SearchSectionHome = styled.section`
             font-weight: 700;
             color: #000;
         }
+    }
+    
+    h2{
+        font-size: 2rem;
+        color: #fff;
     }
 
     input{
