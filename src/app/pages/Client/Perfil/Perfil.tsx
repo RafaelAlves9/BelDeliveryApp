@@ -43,8 +43,8 @@ const Perfil = () => {
                         <p>Meu Perfil</p>
                         <p>Rafael Alves</p>
                     </div>
-                    {options.map((option) => (
-                        <div onClick={() => dispatch(setPerfilSection(option.enum))}>
+                    {options.map((option, index) => (
+                        <div key={index} onClick={() => dispatch(setPerfilSection(option.enum))}>
                             {option.icon}
                             <p>{option.name}</p>
                         </div>

@@ -37,7 +37,7 @@ const Home = () => {
     return(
         <FragmentDefault>
             <styles.SearchSectionHome>
-                <h1>Olá <span>{States.client.userName}</span>, seja bem-vindo!</h1>
+                <h1>Olá <span>{States.client.name}</span>, seja bem-vindo!</h1>
                 <h2>Navegue e descubra seu novo restaurante favorito!</h2>
             </styles.SearchSectionHome>
             <styles.CategorySection>

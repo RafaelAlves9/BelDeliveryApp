@@ -56,7 +56,7 @@ const SidebarLeft = ({ isOpen }: props) => {
 
                     <Styled.NameContainer>
                         <p>
-                            Olá, <span>{client.userName}</span>!
+                            Olá, <span>{client.name}</span>!
                         </p>
                     </Styled.NameContainer>
                     <hr />

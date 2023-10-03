@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { useAppSelector } from "@store/Store";
-import { ClientService } from "@service/Client.service";
+// import { ClientService } from "@service/Client.service";
 import { TClientUserDataSchemaResponse } from "@response/ClientUserDataResponse";
 
 const UsePersonalController = () => {
     const { client } = useAppSelector((state) => state.clientData);
-    const clientService = new ClientService();
+    // const clientService = new ClientService();
 
     const { watch, register, reset, handleSubmit, formState: {errors} } = useForm<TClientUserDataSchemaResponse>({
     });

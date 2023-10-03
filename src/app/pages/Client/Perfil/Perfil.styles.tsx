@@ -16,7 +16,7 @@ export const Container = styled.div`
 `
 export const NavBar = styled.section`
     width: 100%;
-    height: 33rem;
+    height: fit-content;
     box-shadow: 4px 4px 10px 5px #00000012;
     border-radius: .2rem;
 
@@ -54,6 +54,7 @@ export const NavBar = styled.section`
 
     @media all and (min-width: 54rem) {
         max-width: 18rem;
+        height: 33rem;
     }
 `
 export const Content = styled.section`

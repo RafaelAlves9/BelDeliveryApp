@@ -1,0 +1,10 @@
+.error{
+    margin-top: .5rem;
+    width: 100%;
+    text-align: left;
+}
+.error > p{
+    font-size: .9rem;
+    color: red;
+    font-weight: 500;
+}

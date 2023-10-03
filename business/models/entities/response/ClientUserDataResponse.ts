@@ -9,14 +9,16 @@ export const ClientAddressResponse = superstruct.object({
   country: superstruct.string(),
 });
 export const ClientUserData = superstruct.object({
-  address: ClientAddressResponse,
   id_user: superstruct.string(),
-  userName: superstruct.string(),
-  createdDate: superstruct.date(),
+  name: superstruct.string(),
+  email: superstruct.string(),
+  gender: superstruct.number(),
   cellPhone: superstruct.string(),
+  dateOfBirth: superstruct.nullable(superstruct.date()),
   active: superstruct.boolean(),
-  initialAction: superstruct.date(),
-  finishAction: superstruct.date(),
+  createdDate: superstruct.date(),
+  inactiveDate: superstruct.nullable(superstruct.date()),
+  address: ClientAddressResponse,
 });
 
 export type TClientUserDataSchemaResponse = superstruct.Infer<typeof ClientUserData>;

@@ -8,11 +8,13 @@ type InitialState = {
 const initialState: InitialState = {
   client: {
     id_user: "",
-    userName: "",
+    email: "",
+    gender: 1,
+    name: "",
     createdDate: new Date(),
     cellPhone: "",
-    initialAction: new Date(),
-    finishAction: new Date(),
+    dateOfBirth: null,
+    inactiveDate: null,
     active: true,
     address: {
       id_user: "",
