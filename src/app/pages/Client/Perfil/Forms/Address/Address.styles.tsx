@@ -19,25 +19,6 @@ export const Form = styled.form`
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
-
-        >div:nth-of-type(1){
-            grid-area: cep;
-        }
-        >div:nth-of-type(2){
-            grid-area: rua;
-        }
-        >div:nth-of-type(3){
-            grid-area: numero;
-        }
-        >div:nth-of-type(4){
-            grid-area: cidade;
-        }
-        >div:nth-of-type(5){
-            grid-area: estado;
-        }
-        >div:nth-of-type(6){
-            grid-area: complemento;
-        }
     }
 
     >div:last-of-type{
@@ -54,7 +35,27 @@ export const Form = styled.form`
             grid-template-areas:
             "cep rua rua numero"
             "cidade estado complemento complemento";
+            
+            >div:nth-of-type(1){
+                grid-area: cep;
+            }
+            >div:nth-of-type(2){
+                grid-area: rua;
+            }
+            >div:nth-of-type(3){
+                grid-area: numero;
+            }
+            >div:nth-of-type(4){
+                grid-area: cidade;
+            }
+            >div:nth-of-type(5){
+                grid-area: estado;
+            }
+            >div:nth-of-type(6){
+                grid-area: complemento;
+            }
         }
+
     }
 
 `
