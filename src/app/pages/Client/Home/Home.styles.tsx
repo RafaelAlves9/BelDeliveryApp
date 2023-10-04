@@ -16,13 +16,14 @@ export const SearchSectionHome = styled.section`
 
         span{
             font-weight: 700;
-            color: #000;
+            color: var(--orange);
+            font-weight: 700;
         }
     }
     
     h2{
-        font-size: 2rem;
-        color: #fff;
+        font-size: 1.5rem;
+        color: #000;
     }
 
     input{
@@ -39,6 +40,9 @@ export const SearchSectionHome = styled.section`
     @media all and (min-width: 54rem) {
         h1{
             font-size: 3.5rem;
+        }
+        h2{
+            font-size: 1.7rem;
         }
         input{
             font-size: 1.3rem;

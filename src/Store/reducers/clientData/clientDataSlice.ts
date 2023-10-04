@@ -9,7 +9,7 @@ const initialState: InitialState = {
   client: {
     id_user: "",
     email: "",
-    gender: 1,
+    gender: "",
     name: "",
     createdDate: new Date(),
     cellPhone: "",
@@ -22,7 +22,9 @@ const initialState: InitialState = {
       streeth: "",
       city: "",
       state: "",
-      country: ""
+      country: "",
+      complement: "",
+      number: 0,
     }
   },
 };

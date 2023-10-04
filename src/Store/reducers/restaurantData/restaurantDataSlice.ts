@@ -14,14 +14,6 @@ const initialState: InitialState = {
     initialAction: new Date(),
     finishAction: new Date(),
     active: true,
-    address: {
-      id_user: "",
-      cep: "",
-      streeth: "",
-      city: "",
-      state: "",
-      country: ""
-    }
   },
 };
 

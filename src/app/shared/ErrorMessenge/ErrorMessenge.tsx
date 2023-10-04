@@ -1,9 +1,9 @@
-import { IMessengeValidationResponse } from "@utils/ValitationSchema";
+import { IMessengeValidationResponse, MessengeList } from "@utils/ValitationSchema";
 import styles from "./ErrorMessenge.module.css";
 import { Fragment } from "react";
 
 type Props = {
-    validate: IMessengeValidationResponse;
+    validate?: IMessengeValidationResponse;
     validateStatus?: boolean;
 };
 
@@ -15,7 +15,7 @@ const ErrorMessenge = ({
         <Fragment>
             {validateStatus && (
                 <div className={styles.error}>
-                    <p>{validate.messenge}</p>
+                    <p>{!!validate ? validate.messenge : MessengeList.required}</p>
                 </div>
             )}
         </Fragment>

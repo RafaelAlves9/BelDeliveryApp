@@ -2,26 +2,26 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { useAppSelector } from "@store/Store";
 // import { ClientService } from "@service/Client.service";
-import { TClientUserDataSchemaResponse } from "@response/ClientUserDataResponse";
+import { TAddressSchemaResponse } from "@response/AddressResponse";
 
 const UseAddressController = () => {
     const { client } = useAppSelector((state) => state.clientData);
     // const clientService = new ClientService();
 
-    const { watch, register, reset, handleSubmit, formState: {errors} } = useForm<TClientUserDataSchemaResponse>({
+    const { watch, register, reset, handleSubmit, formState: {errors} } = useForm<TAddressSchemaResponse>({
     });
     
     const onSubmit = async () => {
        
     };
 
-    const setterFormValue = (client: TClientUserDataSchemaResponse) => {
-        reset(client);
+    const setterFormValue = (address: TAddressSchemaResponse) => {
+        reset(address);
     };
 
     useEffect(() => {
       if(!!client.id_user){
-        setterFormValue(client);
+        setterFormValue(client.address);
       }
     }, []);
 
