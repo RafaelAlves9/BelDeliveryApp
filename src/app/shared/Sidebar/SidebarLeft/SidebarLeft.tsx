@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
 import React from "react";
 import { useAppSelector } from "@store/Store";
+import { getFirstAndSecondName } from "@utils/FormatedString";
 
 type props = {
     isOpen: boolean;
@@ -56,7 +57,7 @@ const SidebarLeft = ({ isOpen }: props) => {
 
                     <Styled.NameContainer>
                         <p>
-                            Olá, <span>{client.name}</span>!
+                            Olá, <span>{getFirstAndSecondName(client.name)}</span>!
                         </p>
                     </Styled.NameContainer>
                     <hr />

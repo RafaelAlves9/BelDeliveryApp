@@ -22,10 +22,15 @@ export const NavBar = styled.section`
 
     >div:not(:first-of-type){
         height: 4rem;
-        border-top: 1px solid #bbbbbb99;
+        border-top: 1px solid #bbbbbb5b;
+        border-left: 7px solid transparent;
         display: flex;
         align-items: center;
         cursor: pointer;
+        
+        &.active{
+            border-left: 7px solid var(--green-main);
+        }
 
         >svg{
             margin: 0 1rem;

@@ -1,14 +1,14 @@
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { useAppSelector } from "@store/Store";
-// import { ClientService } from "@service/Client.service";
-import { TAddressSchemaResponse } from "@response/AddressResponse";
+import { AddressService } from "@service/Address.service";
+import { TAddressSchemaResponse } from "@response/AddressSchemaResponse";
 
 const UseAddressController = () => {
     const { client } = useAppSelector((state) => state.clientData);
-    // const clientService = new ClientService();
+    const addressService = new AddressService();
 
-    const { watch, register, reset, handleSubmit, formState: {errors} } = useForm<TAddressSchemaResponse>({
+    const { watch, setValue, register, reset, handleSubmit, formState: {errors} } = useForm<TAddressSchemaResponse>({
     });
     
     const onSubmit = async () => {
@@ -18,6 +18,21 @@ const UseAddressController = () => {
     const setterFormValue = (address: TAddressSchemaResponse) => {
         reset(address);
     };
+
+    const getAddressByCep = async () => {
+        const result = await addressService.getCep(watch("cep"));
+        if(!!result.cep){
+            setValue("streeth", result.logradouro);
+            setValue("city", result.localidade);
+            setValue("state", result.uf);
+        };
+    };
+
+    useEffect(() => {
+        if(watch("cep")?.length > 6){
+            getAddressByCep();
+        };
+    }, [watch("cep")]);
 
     useEffect(() => {
       if(!!client.id_user){

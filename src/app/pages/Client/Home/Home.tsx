@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Lanch from "@assets/lanchonete-category.png";
 import Pizzaria from "@assets/pizza-category.webp";
 import Hamb from "@assets/hamburguer-category.png";
+import { getFirstAndSecondName } from "@utils/FormatedString";
 
 interface Category {
     img: string;
@@ -37,7 +38,7 @@ const Home = () => {
     return(
         <FragmentDefault>
             <styles.SearchSectionHome>
-                <h1>Olá <span>{States.client.name}</span>, seja bem-vindo!</h1>
+                <h1>Olá <span>{getFirstAndSecondName(States.client.name)}</span>, seja bem-vindo!</h1>
                 <h2>Navegue e descubra seu novo restaurante favorito!</h2>
             </styles.SearchSectionHome>
             <styles.CategorySection>

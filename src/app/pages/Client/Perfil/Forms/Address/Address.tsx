@@ -9,7 +9,7 @@ const Address = () => {
     
     return(
         <Styles.Container>
-            <h1>Dados Pessoais</h1>
+            <h1>Endereço</h1>
             <Styles.Form onSubmit={Actions.handleSubmit(Actions.onSubmit)}>
                 <div className="content">
                     <Styles.InputGroup>
@@ -84,13 +84,13 @@ const Address = () => {
                             <input
                                 type="text"
                                 {...Setters.register("state", {validate: (e) => {
-                                    return validation.text(e).isValide;
+                                    return validation.text(e, true, 0, 50).isValide;
                                 }})}
                                 className={States.errors.state?.type === "validate" ? "error" : ""}
                             />
                         </label>
                         <ErrorMessenge
-                            validate={validation.text(States.watch("state"))}
+                            validate={validation.text(States.watch("state"), true, 0, 50)}
                             validateStatus={States.errors.state?.type === "validate"}
                         />
                     </Styles.InputGroup>

@@ -20,11 +20,15 @@ export const ContentOrders = styled.main`
     margin-top: 1rem;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
 
+    @media all and (min-width: 40rem) {
+        grid-template-columns: 1fr 1fr;
+    }
+
     @media all and (min-width: 54rem) {
-        
+        grid-template-columns: 1fr 1fr 1fr;
     }
 `
 export const OrderCard = styled.div`

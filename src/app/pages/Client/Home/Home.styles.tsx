@@ -23,7 +23,8 @@ export const SearchSectionHome = styled.section`
     
     h2{
         font-size: 1.5rem;
-        color: #000;
+        color: #fff;
+        font-weight: 400;
     }
 
     input{

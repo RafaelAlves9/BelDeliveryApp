@@ -11,4 +11,14 @@ export const AddressResponse = superstruct.object({
   complement: superstruct.string(),
 });
 
+export const CepApiResponse = superstruct.object({
+  cep: superstruct.string(),
+  logradouro: superstruct.string(),
+  uf: superstruct.string(),
+  localidade: superstruct.string(),
+  bairro: superstruct.string(),
+  complemento: superstruct.string(),
+});
+
 export type TAddressSchemaResponse = superstruct.Infer<typeof AddressResponse>;
+export type TCepApiSchemaResponse = superstruct.Infer<typeof CepApiResponse>;

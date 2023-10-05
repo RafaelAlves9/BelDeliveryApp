@@ -20,14 +20,15 @@ export const Content = styled.main`
     margin-top: 1rem;
     width: 100%;
     display: grid;
+    justify-content: center;
     grid-template-columns: 1fr;
     gap: 1.5rem;
     
-    @media all and (min-width: 28rem) {
+    @media all and (min-width: 32rem) {
         grid-template-columns: 1fr 1fr;
     }
 
-    @media all and (min-width: 35rem) {
+    @media all and (min-width: 40rem) {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
@@ -36,7 +37,7 @@ export const Content = styled.main`
     }
 `
 export const Card = styled.div`
-    width: 100%;
+    width: 95%;
     height: 8rem;
     padding: 1rem;
     border-radius: .5rem;

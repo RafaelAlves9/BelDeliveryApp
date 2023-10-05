@@ -1,4 +1,4 @@
 export enum EPerfilOption {
-  Personal=1,
-  Address
+  Personal="Dados Pessoais",
+  Address="Endereço"
 }

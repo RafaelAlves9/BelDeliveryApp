@@ -1,7 +1,6 @@
 import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
 import * as Styles from "./Perfil.styles";
 import { EPerfilOption } from "@enums/EPerfilOption";
-import { renderPerfilOptionLabel } from "@utils/renderRoleLabel";
 import { BsBuildingGear, BsFillPersonLinesFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { setPerfilSection } from "@store/reducers/perfil/perfilSlice";
@@ -17,12 +16,12 @@ const Perfil = () => {
         {
             icon: <BsFillPersonLinesFill />,
             enum: EPerfilOption.Personal,
-            name: renderPerfilOptionLabel(EPerfilOption.Personal)
+            name: EPerfilOption.Personal
         },
         {
             icon: <BsBuildingGear />,
             enum: EPerfilOption.Address,
-            name: renderPerfilOptionLabel(EPerfilOption.Address)
+            name: EPerfilOption.Address
         },
     ];
 
@@ -44,7 +43,11 @@ const Perfil = () => {
                         <p>Rafael Alves</p>
                     </div>
                     {options.map((option, index) => (
-                        <div key={index} onClick={() => dispatch(setPerfilSection(option.enum))}>
+                        <div
+                            key={index}
+                            onClick={() => dispatch(setPerfilSection(option.enum))}
+                            className={perfilSection === option.enum ? "active" : ""}
+                        >
                             {option.icon}
                             <p>{option.name}</p>
                         </div>

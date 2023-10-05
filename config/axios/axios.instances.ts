@@ -1,6 +1,5 @@
 import { getEnvironmentUrl } from "./axios.helpers";
 import { AxiosBuilder } from "./axios.builder";
-import axios from "axios";
 //import { getLocalStorageProperty } from "@utils/getLocalStorageProperty";
 
 const baseUrl = getEnvironmentUrl();
@@ -8,7 +7,6 @@ const baseUrl = getEnvironmentUrl();
 
 const instances = {
   public: AxiosBuilder.build()
-    .withUrl(baseUrl)
     .withDefaultHeader()
     .toDomain()
     .initInstance(),
