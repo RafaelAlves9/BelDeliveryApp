@@ -35,5 +35,4 @@ export class AddressService implements IAddressInterface {
         }
         throw new Error("Method not implemented.");
     };
-
 };

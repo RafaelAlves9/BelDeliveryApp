@@ -14,7 +14,7 @@ export const BgBar = styled.div<{isOpen: boolean}>`
 export const Container = styled.div<{isOpen: boolean}>`
     width: 18rem;
     position: absolute;
-    top: 4.1rem;
+    top: 4rem;
     bottom: 0;
     right: ${(props) => props.isOpen ? "0" : "-100%"};
     background-color: #fff;
