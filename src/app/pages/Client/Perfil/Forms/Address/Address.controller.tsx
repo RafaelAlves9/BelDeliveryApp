@@ -8,16 +8,16 @@ const UseAddressController = () => {
     const { client } = useAppSelector((state) => state.clientData);
     const addressService = new AddressService();
 
-    const { watch, setValue, register, reset, handleSubmit, formState: {errors} } = useForm<TAddressSchemaResponse>({
+    const { watch, setValue, register,  handleSubmit, formState: {errors} } = useForm<TAddressSchemaResponse>({
     });
     
     const onSubmit = async () => {
        
     };
 
-    const setterFormValue = (address: TAddressSchemaResponse) => {
-        reset(address);
-    };
+    // const setterFormValue = (address: TAddressSchemaResponse) => {
+    //     reset(address);
+    // };
 
     const getAddressByCep = async () => {
         const result = await addressService.getCep(watch("cep"));
@@ -35,9 +35,9 @@ const UseAddressController = () => {
     }, [watch("cep")]);
 
     useEffect(() => {
-      if(!!client.id_user){
-        setterFormValue(client.address);
-      }
+    //   if(!!client.id_user){
+    //     setterFormValue(client.address);
+    //   }
     }, []);
 
     return {

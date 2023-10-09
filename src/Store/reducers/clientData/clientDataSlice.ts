@@ -16,16 +16,6 @@ const initialState: InitialState = {
     dateOfBirth: null,
     inactiveDate: null,
     active: true,
-    address: {
-      id_user: "",
-      cep: "",
-      streeth: "",
-      city: "",
-      state: "",
-      country: "",
-      complement: "",
-      number: 0,
-    }
   },
 };
 

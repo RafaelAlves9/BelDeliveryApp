@@ -11,7 +11,7 @@ interface Category {
     img: string;
     title: string;
     route: string;
-}
+};
 
 const Home = () => {
     const { States } = UseHomeController();
