@@ -2,8 +2,9 @@ import { auth, googleAuth } from "@config/firebase/firebaseConfig";
 import { IAuthenticationInterface } from "../Interfaces/IAuthentication.interface";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { db } from "@config/firebase/firebaseConfig";
-import { where, query, collection, getDocs } from 'firebase/firestore';
+import { where, query, collection, getDocs, addDoc } from 'firebase/firestore';
 import { TRole } from "../../models/types/TRole";
+import { TRegisterUserSchema } from "@request/UserSchema";
 
 export class AuthenticationService implements IAuthenticationInterface {
 
@@ -49,4 +50,21 @@ export class AuthenticationService implements IAuthenticationInterface {
         
         return querySnapshot.size > 0;
     };
+    
+    async registerUserProfile(user: TRegisterUserSchema): Promise<boolean> {
+        const clientRef = collection(db, "client");
+        const resultClient = await addDoc(clientRef, user);
+        
+        if(!!resultClient.id){
+            const addressRef = collection(db, "client", resultClient.id, "address");
+            const resultAddress = await addDoc(addressRef, user);
+
+            if(!!resultAddress.id){
+                return true;
+            };
+        };
+        return false;
+    };
 };
+
+
