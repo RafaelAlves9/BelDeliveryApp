@@ -1,7 +1,7 @@
 import { IClientInterface } from "../Interfaces/IRestaurant.interface";
 import { db } from "../../../config/firebase/firebaseConfig";
 import { getDoc, doc } from 'firebase/firestore';
-import { TRestaurantDataSchemaResponse } from "../../models/entities/response/RestaurantUserDataResponse";
+import { TRestaurantDataSchemaResponse } from "../../models/entities/response/RestaurantResponse";
 
 export class RestaurantService implements IClientInterface {
 

@@ -61,7 +61,7 @@ const UseHomeController = () => {
         States: {
             errors: errors,
             watch: watch,
-            client
+            client: client
         },
         Setters: {
             register: register

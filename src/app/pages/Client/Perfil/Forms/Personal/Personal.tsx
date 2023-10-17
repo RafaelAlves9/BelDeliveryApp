@@ -7,7 +7,7 @@ import { ButtonDefault } from "@src/App.styled";
 
 const Personal = () => {
     const { States, Setters, Actions } = UsePersonalController();
-    console.log("States", States.errors.name?.type === "validate")
+    
     return(
         <Styles.Container>
             <h1>Dados Pessoais</h1>
@@ -18,15 +18,15 @@ const Personal = () => {
                             <p>Nome Completo</p>
                             <input
                                 type="text"
-                                {...Setters.register("name", {validate: (e) => {
+                                {...Setters.register("userName", {validate: (e) => {
                                     return validation.text(e).isValide;
                                 }})}
-                                className={States.errors.name?.type === "validate" ? "error" : ""}
+                                className={States.errors.userName?.type === "validate" ? "error" : ""}
                             />
                         </label>
                         <ErrorMessenge
-                            validate={validation.text(States.watch("name"))}
-                            validateStatus={States.errors.name?.type === "validate"}
+                            validate={validation.text(States.watch("userName"))}
+                            validateStatus={States.errors.userName?.type === "validate"}
                         />
                     </Styles.InputGroup>
                     
@@ -91,7 +91,7 @@ const Personal = () => {
                     </Styles.InputGroup>
                 </div>
                 <div className="button_container">
-                    <ButtonDefault color="save">
+                    <ButtonDefault type="submit" color="save">
                         Salvar Alterações
                     </ButtonDefault>
                 </div>

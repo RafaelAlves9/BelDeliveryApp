@@ -1,7 +1,6 @@
 import * as superstruct from "superstruct";
 
 export const Address = superstruct.object({
-  id: superstruct.string(),
   id_user: superstruct.string(),
   createdDate: superstruct.date(),
   cep: superstruct.string(),

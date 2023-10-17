@@ -12,15 +12,27 @@ export class AuthenticationService implements IAuthenticationInterface {
         try {
             const login = await signInWithPopup(auth, googleAuth);
             const isRegistred = await this.checkUserExist(login.user.uid, role);
-            
+
             if (!isRegistred) {
-                // registration method
+                const newUser: TRegisterUserSchema = {
+                    cellPhone: !!login.user.phoneNumber ? login.user.phoneNumber : "",
+                    createdDate: new Date(),
+                    email: !!login.user.email ? login.user.email : "",
+                    id_user: login.user.uid,
+                    isActive: true,
+                    userName: !!login.user.displayName ? login.user.displayName : "",
+                    dateOfBirth: null,
+                    gender: "",
+                    inactiveDate: null
+                };
+                const client = await this.registerClientProfile(newUser);
+
+                if(!client || client === null) return false;
             };
             
             this.setLocalUserData(login.user.uid, role);
             return true;
         } catch (error) {
-            console.log("error", error);
             return false;
         };
     };
@@ -51,17 +63,12 @@ export class AuthenticationService implements IAuthenticationInterface {
         return querySnapshot.size > 0;
     };
     
-    async registerUserProfile(user: TRegisterUserSchema): Promise<boolean> {
+    async registerClientProfile(user: TRegisterUserSchema): Promise<boolean> {
         const clientRef = collection(db, "client");
         const resultClient = await addDoc(clientRef, user);
         
         if(!!resultClient.id){
-            const addressRef = collection(db, "client", resultClient.id, "address");
-            const resultAddress = await addDoc(addressRef, user);
-
-            if(!!resultAddress.id){
-                return true;
-            };
+            return true;
         };
         return false;
     };

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { toastMessage } from "@utils/toastMessage";
 import { useDispatch } from "react-redux";
 import { setLoading } from "@store/reducers/loading/loadingSlice";
-import { TRegisterUserSchema } from "@request/UserSchema";
 
 export enum ELoginStep {
     Initial=1,
@@ -31,23 +30,14 @@ const UseLoginController = () => {
 
     const googleSingIn = async () => {
         dispatch(setLoading(true));
-        const user: TRegisterUserSchema = {
-            cellPhone: "asdasd",
-            createdDate: new Date(),
-            email: "asdasdasdasd",
-            id_user: "sadasdas",
-            isActive: true,
-            userName: "dasdasdadasdsdas",
-            uid: "aaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbb"
-        };
-        await authenticationService.registerUserProfile(user)
+        await authenticationService.loginWithGoogle("client")
         .then((res) => {
-            // if(res === true){
-            //     navigate("/");
-            //     toastMessage("Login feito com sucesso", "success");
-            // }else {
-            //     toastMessage("Não foi possível fazer login com o Google", "error");
-            // };
+            if(res === true){
+                navigate("/");
+                toastMessage("Login feito com sucesso", "success");
+            }else {
+                toastMessage("Não foi possível fazer login com o Google", "error");
+            };
         })
         .finally(() => {
             dispatch(setLoading(false));

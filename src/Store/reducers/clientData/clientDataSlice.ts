@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { TClientUserDataSchemaResponse } from "@response/ClientUserDataResponse";
+import { TClientUserDataSchemaResponse } from "@response/ClientResponse";
 
 type InitialState = {
   client: TClientUserDataSchemaResponse;
@@ -10,12 +10,12 @@ const initialState: InitialState = {
     id_user: "",
     email: "",
     gender: "",
-    name: "",
+    userName: "",
     createdDate: new Date(),
     cellPhone: "",
     dateOfBirth: null,
     inactiveDate: null,
-    active: true,
+    isActive: true,
   },
 };
 

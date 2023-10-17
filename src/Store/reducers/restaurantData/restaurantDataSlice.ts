@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { TRestaurantDataSchemaResponse } from "@response/RestaurantUserDataResponse";
+import { TRestaurantDataSchemaResponse } from "@response/RestaurantResponse";
 
 type InitialState = {
   restaurant: TRestaurantDataSchemaResponse;
