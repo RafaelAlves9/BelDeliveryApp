@@ -25,7 +25,8 @@ const initialState: InitialState = {
       id_user: "",
       number: "",
       state: "",
-      streeth: ""
+      streeth: "",
+      createdDate: new Date()
     }
   },
 };

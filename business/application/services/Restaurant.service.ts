@@ -13,7 +13,7 @@ export class RestaurantService extends Base implements IClientInterface {
                 const clientData = client.data() as TRestaurantDataSchemaResponse;
                 return clientData;
             } else {
-                this.message("Erro no carregamento");
+                this.message("Erro no carregamento", "error");
                 return null;
             };
         } catch (error: any){
