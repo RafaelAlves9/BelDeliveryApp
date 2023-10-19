@@ -6,10 +6,11 @@ import { ClientService } from "@service/Client.service";
 import { RestaurantService } from "@service/Restaurant.service";
 import { getLocalStorageProperty } from "@utils/getLocalStorageProperty";
 import { useDispatch } from "react-redux";
-import { setClientData } from "@store/reducers/clientData/clientDataSlice";
+import { setAddressData, setClientData } from "@store/reducers/clientData/clientDataSlice";
 import { setRestaurantData } from "@store/reducers/restaurantData/restaurantDataSlice";
 import { useAppSelector } from "@store/Store";
 import { setLoading } from "@store/reducers/loading/loadingSlice";
+import { AddressService } from "@service/Address.service";
 
 type Props = {
     children: React.ReactNode;
@@ -23,6 +24,7 @@ const FragmentDefault = ({ children }: Props) => {
     const dispatch = useDispatch();
     const clientService = new ClientService();
     const restaurantService = new RestaurantService();
+    const addressService = new AddressService();
 
     const getClient = async () => {
         if(client.id_user.length > 0) return;
@@ -33,8 +35,13 @@ const FragmentDefault = ({ children }: Props) => {
     const getRestaurant = async () => {
         if(restaurant.id_user.length > 0) return;
         const user = await restaurantService.getRestaurant(id);
-        console.log("user", user);
-        dispatch(setRestaurantData(user));
+        if(!!user) dispatch(setRestaurantData(user));
+    };
+
+    const getAddress = async () => {
+        if(!!client.address.id_user) return;
+        const address = await addressService.getAddressByIdUser(id);
+        dispatch(setAddressData(address));
     };
 
     const switchRoleByGetUserData = async () => {
@@ -44,6 +51,7 @@ const FragmentDefault = ({ children }: Props) => {
         }else if (role === "client"){
             await getClient();
         };
+        await getAddress();
         dispatch(setLoading(false));
     };
 

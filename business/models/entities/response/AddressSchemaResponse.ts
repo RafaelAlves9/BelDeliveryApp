@@ -4,11 +4,12 @@ export const AddressResponse = superstruct.object({
   id_user: superstruct.string(),
   cep: superstruct.string(),
   streeth: superstruct.string(),
-  number: superstruct.number(),
+  number: superstruct.string(),
   city: superstruct.string(),
   state: superstruct.string(),
   country: superstruct.string(),
   complement: superstruct.string(),
+  createdDate: superstruct.date(),
 });
 
 export const CepApiResponse = superstruct.object({

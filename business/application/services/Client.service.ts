@@ -3,8 +3,9 @@ import { db } from "../../../config/firebase/firebaseConfig";
 import { getDocs, collection, query, where, updateDoc, addDoc } from 'firebase/firestore';
 import { TClientUserDataSchemaResponse } from "../../models/entities/response/ClientResponse";
 import { TRegisterUserSchema } from "@request/UserSchema";
+import { Base } from "./Base.service";
 
-export class ClientService implements IClientInterface {
+export class ClientService extends Base implements IClientInterface {
 
     async getClient(id: string): Promise<TClientUserDataSchemaResponse> {
         try{

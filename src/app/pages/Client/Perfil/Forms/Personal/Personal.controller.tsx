@@ -4,10 +4,13 @@ import { useAppSelector } from "@store/Store";
 import { TClientUserDataSchemaResponse } from "@response/ClientResponse";
 import { ClientService } from "@service/Client.service";
 import { toastMessage } from "@utils/toastMessage";
+import { useDispatch } from "react-redux";
+import { setLoading } from "@store/reducers/loading/loadingSlice";
 
 const UsePersonalController = () => {
     const { client } = useAppSelector((state) => state.clientData);
     const clientService = new ClientService();
+    const dispatch = useDispatch();
     
     const { watch, register, reset, handleSubmit, formState: {errors} } = useForm<TClientUserDataSchemaResponse>({
     });
@@ -21,8 +24,9 @@ const UsePersonalController = () => {
     };
 
     const updateClient = async () => {
+        dispatch(setLoading(true));
         const result = await clientService.updateClientProfile(watch());
-        console.log(result)
+        dispatch(setLoading(false));
         if(!!result){
             toastMessage("Perfil editado com sucesso", "success");
         }else{

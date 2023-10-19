@@ -5,7 +5,7 @@ export const Address = superstruct.object({
   createdDate: superstruct.date(),
   cep: superstruct.string(),
   streeth: superstruct.string(),
-  number: superstruct.number(),
+  number: superstruct.string(),
   city: superstruct.string(),
   state: superstruct.string(),
   country: superstruct.string(),

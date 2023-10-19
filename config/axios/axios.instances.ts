@@ -1,8 +1,7 @@
-import { getEnvironmentUrl } from "./axios.helpers";
 import { AxiosBuilder } from "./axios.builder";
-//import { getLocalStorageProperty } from "@utils/getLocalStorageProperty";
+import { firebaseConfig } from "@config/firebase/firebaseConfig";
 
-const baseUrl = getEnvironmentUrl();
+const baseUrl = `https://${firebaseConfig.projectId}.firebaseio.com/`;
 //const token = getLocalStorageProperty("user", "token");
 
 const instances = {

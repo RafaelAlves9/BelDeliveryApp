@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { TAddressSchemaResponse } from "@response/AddressSchemaResponse";
 import { TClientUserDataSchemaResponse } from "@response/ClientResponse";
 
 type InitialState = {
@@ -16,6 +17,16 @@ const initialState: InitialState = {
     dateOfBirth: null,
     inactiveDate: null,
     isActive: true,
+    address: {
+      cep: "",
+      city: "",
+      complement: "",
+      country: "",
+      id_user: "",
+      number: "",
+      state: "",
+      streeth: ""
+    }
   },
 };
 
@@ -26,8 +37,11 @@ const clientDataSlice = createSlice({
     setClientData(state, { payload }: PayloadAction<TClientUserDataSchemaResponse>) {
       state.client = payload;
     },
+    setAddressData(state, { payload }: PayloadAction<TAddressSchemaResponse>) {
+      state.client.address = payload;
+    },
   },
 });
 
-export const { setClientData } = clientDataSlice.actions;
+export const { setClientData, setAddressData } = clientDataSlice.actions;
 export default clientDataSlice.reducer;
