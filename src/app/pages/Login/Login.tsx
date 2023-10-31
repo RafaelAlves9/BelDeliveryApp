@@ -4,10 +4,12 @@ import UseLoginController, { ELoginStep } from "./Login.controller";
 import LogoGoogle from "@assets/google_logo.webp";
 import { HiOutlineMail } from 'react-icons/hi';
 import { BiChevronLeft } from 'react-icons/bi';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { Actions, States, Setters } = UseLoginController();
     const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const navigate = useNavigate();
 
     const screenRender = () => {
         if(States.loginStepScreen === ELoginStep.Initial){
@@ -43,12 +45,13 @@ const Login = () => {
                     <styles.ButtonAction
                         number={3}
                         id="register"
+                        onClick={() => navigate("/register")}
                     >
                         Não tenho conta
                     </styles.ButtonAction>
                 </styles.ButtonsActionsContainer>
             </React.Fragment>
-        )
+        );
     };
     
     const emailLoginForm = () => {

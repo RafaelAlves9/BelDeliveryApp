@@ -46,7 +46,7 @@ export const ContainerForm = styled.div`
     
     @media screen and (max-width: 54rem) {
         z-index: 99;
-        background-color: rgb(0,0,0,0.4);
+        background-color: #bbbbbbbb;
     };
 `;
 export const Tittle = styled.h1`

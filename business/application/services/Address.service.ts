@@ -14,12 +14,12 @@ export class AddressService extends Base implements IAddressInterface {
         try{
             const queryDoc = query(collection(db, "address"), where("id_user", "==", id));
             const address = await getDocs(queryDoc);
+            console.log("address", address);
            
             if(!address.empty){
                 const addressData = address.docs[0].data() as TAddressSchemaResponse;
                 return addressData;
             } else {
-                this.message("Erro na consulta", "error");
                 throw null;
             };
         } catch (error){
@@ -65,10 +65,10 @@ export class AddressService extends Base implements IAddressInterface {
                 this.message("Endereço cadastrado com sucesso ", "success");
                 return true;
             };
-            this.message("Erro ao cadastrar endereço", "error");
             return false;
         }
         catch(error){
+            this.message("Erro ao cadastrar endereço", "error");
             return false;
         };
     };

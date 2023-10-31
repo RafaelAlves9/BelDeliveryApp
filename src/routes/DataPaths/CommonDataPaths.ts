@@ -7,7 +7,7 @@ export const CommonDataPaths: TRoutePath[] = [
     element: CommonImports.Login
   },
   {
-    path: "/cadastro",
+    path: "/register",
     element: CommonImports.Register
   },
   {

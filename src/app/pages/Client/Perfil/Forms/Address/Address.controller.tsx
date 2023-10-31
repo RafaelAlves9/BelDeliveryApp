@@ -6,17 +6,30 @@ import { TAddressSchemaResponse } from "@response/AddressSchemaResponse";
 import { TAddressRegisterSchema } from "@request/AddressSchemaRequest";
 import { useDispatch } from "react-redux";
 import { setLoading } from "@store/reducers/loading/loadingSlice";
+import { getLocalStorageProperty } from "@utils/getLocalStorageProperty";
 
 const UseAddressController = () => {
     const { client } = useAppSelector((state) => state.clientData);
     const addressService = new AddressService();
     const dispatch = useDispatch();
+    const userId = getLocalStorageProperty("logged", "id");
 
     const { watch, setValue, reset, register,  handleSubmit, formState: {errors} } = useForm<TAddressSchemaResponse>({
+        defaultValues: {
+            cep: "",
+            city: "",
+            complement: "",
+            country: "",
+            createdDate: new Date(),
+            number: "",
+            id_user: "",
+            state: "",
+            streeth: "",
+        }
     });
     
     const onSubmit = async () => {
-        if(!!client.address.id_user){
+        if(!!watch("id_user")){
             updateAddress();
         }else{
             postAddress();
@@ -45,8 +58,9 @@ const UseAddressController = () => {
             number: watch("number"),
             state: watch("state"),
             streeth: watch("streeth"),
-            id_user: client.id_user,
+            id_user: userId,
         };
+        console.log("address", address);
 
         return address;
     };
@@ -57,21 +71,18 @@ const UseAddressController = () => {
             city: watch("city"),
             complement: watch("complement"),
             country: watch("country"),
-            createdDate: client.address.createdDate,
+            createdDate: watch("createdDate"),
             number: watch("number"),
             state: watch("state"),
             streeth: watch("streeth"),
-            id_user: client.id_user,
+            id_user: userId,
         };
 
         return address;
     };
 
-    const setterFormValue = (address: TAddressSchemaResponse) => {
-        reset(address);
-    };
-
     const getAddressByCep = async () => {
+        if(watch("cep").length < 6) return;
         const result = await addressService.getCep(watch("cep"));
         if(!!result.cep){
             setValue("streeth", result.logradouro);
@@ -80,16 +91,19 @@ const UseAddressController = () => {
         };
     };
 
-    useEffect(() => {
-        if(watch("cep")?.length > 6){
-            getAddressByCep();
+    const getAddressById = async () => {
+        const result = await addressService.getAddressByIdUser(userId);
+        if(!!result.id_user){
+            reset(result);
         };
+    };
+
+    useEffect(() => {
+        getAddressByCep();
     }, [watch("cep")]);
 
     useEffect(() => {
-      if(!!client.address.id_user){
-        setterFormValue(client.address);
-      };
+        getAddressById();
     }, []);
 
     return {

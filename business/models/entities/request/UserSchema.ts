@@ -7,7 +7,7 @@ export const RegisterUser = superstruct.object({
   id_user: superstruct.string(),
   isActive: superstruct.boolean(),
   createdDate: superstruct.date(),
-  gender: superstruct.string(),
+  gender: superstruct.nullable(superstruct.string()),
   dateOfBirth: superstruct.nullable(superstruct.date()),
   inactiveDate: superstruct.nullable(superstruct.date()),
 });

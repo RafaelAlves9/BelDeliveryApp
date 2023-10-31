@@ -1,6 +1,6 @@
 import { auth, googleAuth } from "@config/firebase/firebaseConfig";
 import { IAuthenticationInterface } from "../Interfaces/IAuthentication.interface";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { db } from "@config/firebase/firebaseConfig";
 import { where, query, collection, getDocs, addDoc } from 'firebase/firestore';
 import { TRole } from "../../models/types/TRole";
@@ -72,6 +72,13 @@ export class AuthenticationService implements IAuthenticationInterface {
         };
         return false;
     };
+    
+    async registerUserWithEmailAndPassword(email: string, password: string): Promise<string | boolean> {
+        const resultClient = await createUserWithEmailAndPassword(auth, email, password);
+        console.log("resultClient")
+        if(!!resultClient.user){
+            return resultClient.user.uid;
+        };
+        return false;
+    };
 };
-
-
