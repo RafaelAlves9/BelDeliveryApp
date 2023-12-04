@@ -10,6 +10,7 @@ import Address from "./Forms/Address/Address";
 
 const Perfil = () => {
     const { perfilSection } = useAppSelector(state => state.perfil);
+    const { client } = useAppSelector((state) => state.clientData);
     const dispatch = useDispatch();
 
     const options = [
@@ -40,7 +41,7 @@ const Perfil = () => {
                 <Styles.NavBar>
                     <div>
                         <p>Meu Perfil</p>
-                        <p>Rafael Alves</p>
+                        <p>{client.userName}</p>
                     </div>
                     {options.map((option, index) => (
                         <div
