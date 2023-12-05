@@ -6,6 +6,7 @@ const ClientImports = {
   Perfil: lazy(() => import("@pages/Client/Perfil/Perfil")),
   Orders: lazy(() => import("@pages/Client/Orders/Orders")),
   Categories: lazy(() => import("@pages/Client/Categories/Categories")),
+  RestauranteList: lazy(() => import("@pages/Client/RestaurantList/RestaurantList")),
 };
 
 export { ClientImports };

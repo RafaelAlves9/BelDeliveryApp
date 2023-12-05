@@ -1,38 +1,37 @@
-import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { RestaurantService } from "@service/Restaurant.service";
 import { TRestaurantDataSchemaResponse } from "@response/RestaurantResponse";
 
-const UseCategoriesController = () => {
+export interface IFormValue {
+    email: string;
+    password: string;
+};
+
+const UseRestauranteListController = () => {
     const restaurantService = new RestaurantService();
-    const { category } = useParams();
     const [restaurantList, setRestaurantList] = useState<TRestaurantDataSchemaResponse[]>([]);
 
-    const getRestaurantListByCategory = async () => {
-        if(category === undefined) return;
-        const result = await restaurantService.getRestaurantListByCategory(category);
+    const getRestaurantList = async () => {
+        const result = await restaurantService.getRestaurantList();
 
         if(result !== null) setRestaurantList(result);
     };
 
     useEffect(() => {
-        getRestaurantListByCategory();
-    }, [category]);
-
-    useEffect(() => {
-      
+        getRestaurantList();
     }, []);
 
     return {
         Actions: {
+            
         },
         States: {
-            restaurantList,
-            category
+            restaurantList
         },
         Setters: {
+            
         },
     };
 };
 
-export default UseCategoriesController;
+export default UseRestauranteListController;

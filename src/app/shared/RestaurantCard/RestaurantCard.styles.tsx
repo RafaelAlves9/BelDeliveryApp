@@ -1,29 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
-    margin: 1rem auto;
-    width: 95%;
-    max-width: 80rem;
-    height: fit-content;
-    
-    >h1{
-        margin-bottom: 1rem;
-        font-size: 1.8rem;
-        font-weight: 400;
-    }
-    >h2{
-        font-size: 1.3rem;
-        font-weight: 600;
-    }
-`
-export const Content = styled.main`
-    margin-top: 1rem;
-    width: 100%;
-    display: flex;
-    gap: 1.5rem;
-`
 export const Card = styled.div`
     width: 95%;
+    max-width: 20rem;
     height: 8rem;
     padding: 1rem;
     border-radius: .5rem;
@@ -31,6 +10,8 @@ export const Card = styled.div`
     gap: 1rem;
     cursor: pointer;
     transition: all .3s;
+    border: 1px solid #00000017;
+    background-color: #bbbbbb19;
 
     >div:first-of-type {
         width: 6rem;
@@ -66,7 +47,7 @@ export const Card = styled.div`
     &:hover{
         scale: 1.05;
         z-index: 9;
-        box-shadow: 1px 2px 4px 3px #0000001a;
+        box-shadow: 5px 5px 10px #0000001a;
         transition: all .3s;
     }
 
@@ -74,4 +55,3 @@ export const Card = styled.div`
         
     }
 `
-

@@ -29,7 +29,7 @@ export const ClientDataPaths: TRoutePath[] = [
   },
   {
     path: "/restaurantes",
-    element: ClientImports.Orders
+    element: ClientImports.RestauranteList
   },
   {
     path: "/categorias/:category",

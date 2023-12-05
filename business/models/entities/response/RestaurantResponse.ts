@@ -2,12 +2,15 @@ import * as superstruct from "superstruct";
 
 export const RestaurantDataResponse = superstruct.object({
   id_user: superstruct.string(),
-  restaurantName: superstruct.string(),
-  createdDate: superstruct.date(),
+  name: superstruct.string(),
   cellPhone: superstruct.string(),
+  createdDate: superstruct.date(),
   active: superstruct.boolean(),
-  initialAction: superstruct.date(),
-  finishAction: superstruct.date(),
+  image: superstruct.string(),
+  category: superstruct.string(),
+  deliveryTimeMin: superstruct.number(),
+  deliveryTimeMax: superstruct.number(),
+  deliveryValue: superstruct.number(),
 });
 
 export type TRestaurantDataSchemaResponse = superstruct.Infer<typeof RestaurantDataResponse>;

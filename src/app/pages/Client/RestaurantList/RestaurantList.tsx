@@ -1,23 +1,16 @@
 import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
-import * as Styles from "./Categories.styles";
-import { useNavigate, useParams } from "react-router-dom";
-import Img from "@assets/pizza-logo.jpg"
-import UseCategoriesController from "./Categories.controller";
+import * as Styles from "./RestaurantList.styles";
+import UseRestauranteListController from "./RestaurantList.controller";
 import RestaurantCard from "@shared/RestaurantCard/RestaurantCard";
 
-const Categories = () => {
-    const { States } = UseCategoriesController();
-
-    const toUpperCaseFirstWord = (name?: string) => {
-        if(!!name) return name.charAt(0).toUpperCase() + name.slice(1);
-    };
+const RestaurantList = () => {
+    const { States } = UseRestauranteListController();
 
     return(
         <FragmentDefault>
             <Styles.Container>
-                <h1>Categoria {toUpperCaseFirstWord(States.category)}</h1>
-                <h2>Lista de Restaurantes</h2>
-                
+                <h1>Meus pedidos</h1>
+                <h2>Histórico</h2>
                 <Styles.Content>
                     {!!States.restaurantList && States.restaurantList.map((restaurante, index) => 
                         <RestaurantCard
@@ -26,10 +19,9 @@ const Categories = () => {
                         />
                     )}
                 </Styles.Content>
-
             </Styles.Container>
         </FragmentDefault>
     );
 };
 
-export default Categories;
+export default RestaurantList;
