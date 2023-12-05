@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from "axios";
 
 type Headers = {
   [key: string]: string;
-};
+}
 
 class AxiosDomain {
   private baseURL = "";
