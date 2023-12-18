@@ -1,10 +1,12 @@
 import FragmentDefault from "@shared/FragmentDefault/FragmentDefault";
 import * as Styles from "./Orders.styles";
-import OrderModal from "./OrderModal/OrderModal";
 import { useDispatch } from "react-redux";
 import { setIsModalOrderOpen } from "@store/reducers/order/orderSlice";
+import ModalOrder from "./ModalOrder/ModalOrder";
+import { useState } from "react";
 
 const Orders = () => {
+    const [openModal, setOpenModal] = useState(true);
     const dispatch = useDispatch();
 
     return(
@@ -29,79 +31,7 @@ const Orders = () => {
                         </div>
                         <hr />
                         <div>
-                            <p onClick={() => dispatch(setIsModalOrderOpen(true))}>
-                                Visualizar
-                            </p>
-                            <p>
-                                Excluir
-                            </p>
-                        </div>
-                    </Styles.OrderCard>
-                    <Styles.OrderCard>
-                        <div>
-                            <div>
-                                <img src="" alt="" />
-                            </div>
-                            <div>
-                                <p>Japa Bel</p>
-                                <p>pedido concluído</p>
-                            </div>
-                        </div>
-                        <hr />
-                        <div>
-                            <p><span>2</span> Itens incluídos</p>
-                        </div>
-                        <hr />
-                        <div>
-                            <p>
-                                Visualizar
-                            </p>
-                            <p>
-                                Excluir
-                            </p>
-                        </div>
-                    </Styles.OrderCard>
-                    <Styles.OrderCard>
-                        <div>
-                            <div>
-                                <img src="" alt="" />
-                            </div>
-                            <div>
-                                <p>Japa Bel</p>
-                                <p>pedido concluído</p>
-                            </div>
-                        </div>
-                        <hr />
-                        <div>
-                            <p><span>2</span> Itens incluídos</p>
-                        </div>
-                        <hr />
-                        <div>
-                            <p>
-                                Visualizar
-                            </p>
-                            <p>
-                                Excluir
-                            </p>
-                        </div>
-                    </Styles.OrderCard>
-                    <Styles.OrderCard>
-                        <div>
-                            <div>
-                                <img src="" alt="" />
-                            </div>
-                            <div>
-                                <p>Japa Bel</p>
-                                <p>pedido concluído</p>
-                            </div>
-                        </div>
-                        <hr />
-                        <div>
-                            <p><span>2</span> Itens incluídos</p>
-                        </div>
-                        <hr />
-                        <div>
-                            <p>
+                            <p onClick={() => setOpenModal(true)}>
                                 Visualizar
                             </p>
                             <p>
@@ -111,7 +41,8 @@ const Orders = () => {
                     </Styles.OrderCard>
                 </Styles.ContentOrders>
             </Styles.OrdersContainer>
-            <OrderModal />
+
+            {openModal && <ModalOrder setOpenModal={setOpenModal} />}
         </FragmentDefault>
     );
 };

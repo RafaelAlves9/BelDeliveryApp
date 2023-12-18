@@ -7,14 +7,10 @@ import { setLoading } from "@store/reducers/loading/loadingSlice";
 import { useEffect } from "react";
 import { useAppSelector } from "@store/Store";
 
-export enum ELoginStep {
-    Initial=1,
-    Email
-};
 export interface IFormValue {
     email: string;
     password: string;
-};
+}
 
 const UseOrdersController = () => {
     const { client } = useAppSelector((state) => state.clientData);
@@ -29,7 +25,7 @@ const UseOrdersController = () => {
         }
     });
     
-    const onSubmit = async () => {
+    const onSubmit = async (): Promise<void> => {
         dispatch(setLoading(true));
         await authenticationService.loginWithEmailAndPassword(
             watch("email"),
